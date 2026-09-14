@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Home, Car, Clock3 } from "lucide-react";
-import { PageHero, Reveal } from "../components/ui.jsx";
+import { PageHero, Reveal, tiltHandlers } from "../components/ui.jsx";
 import { IMG } from "../data.js";
 import { useSEO } from "../hooks/useSEO.js";
 
@@ -65,7 +65,7 @@ export default function GroupHomeSIL() {
           </Reveal>
           <div className="cdc-feature-grid">
             {SIL_SERVICES.map((s) => (
-              <Reveal as="div" className="cdc-feature-card" key={s.title}>
+              <Reveal as="div" className="cdc-feature-card" key={s.title} {...tiltHandlers(5)}>
                 <s.icon size={26} color="var(--pink)" style={{ marginBottom: ".8rem" }} />
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>

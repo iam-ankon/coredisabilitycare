@@ -87,6 +87,15 @@ export const NSW_SUBURBS = [
   { slug: "fairfield", name: "Fairfield", region: "Fairfield", postcode: "2165" },
 ];
 
+export const MILESTONES = [
+  { year: "2018", title: "Doors open in Bankstown", desc: "Core Disability Care launches with a single mission: honest, person-centred NDIS support for Greater Sydney." },
+  { year: "2020", title: "Day Programs go weekly", desc: "Demand for community access grows fast — regular Day Programs launch across Bankstown and Liverpool." },
+  { year: "2021", title: "First SIL homes open", desc: "Our first Supported Independent Living homes welcome participants into 24/7 tailored care." },
+  { year: "2023", title: "High Intensity registration", desc: "Core becomes a registered High Intensity Support provider, expanding the complexity of care we can offer." },
+  { year: "2025", title: "10 suburbs, one team", desc: "Day Programs, SIL, Respite and Homecare now run across ten Greater Sydney suburbs." },
+  { year: "2026", title: "900+ families and counting", desc: "Today, Core supports hundreds of participants and families with the same honesty we started with." },
+];
+
 export const WHY_CORE = [
   { title: "Registered NDIS Provider", desc: "We are a registered NDIS provider and also a registered high intensity provider, ensuring comprehensive support tailored to your needs." },
   { title: "Decades of Combined Experience", desc: "Our team brings decades of combined experience, offering unparalleled expertise and knowledge in disability support." },

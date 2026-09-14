@@ -1,5 +1,5 @@
 import React from "react";
-import { PageHero, Reveal } from "../components/ui.jsx";
+import { PageHero, Reveal, tiltHandlers } from "../components/ui.jsx";
 import { IMG, OTHER_SERVICES } from "../data.js";
 import { useSEO } from "../hooks/useSEO.js";
 
@@ -20,7 +20,7 @@ export default function OtherServices() {
         <div className="cdc-shell">
           <div className="cdc-feature-grid">
             {OTHER_SERVICES.map((s) => (
-              <Reveal as="article" className="cdc-feature-card photo" key={s.title}>
+              <Reveal as="article" className="cdc-feature-card photo" key={s.title} {...tiltHandlers(5)}>
                 <img src={s.img} alt="" />
                 <div className="body">
                   <h3>{s.title}</h3>

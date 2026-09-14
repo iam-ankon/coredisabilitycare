@@ -1,6 +1,6 @@
 import React from "react";
-import { PageHero, Reveal } from "../components/ui.jsx";
-import { IMG, WHY_CORE } from "../data.js";
+import { PageHero, Reveal, tiltHandlers } from "../components/ui.jsx";
+import { IMG, WHY_CORE, MILESTONES } from "../data.js";
 import { useSEO } from "../hooks/useSEO.js";
 
 export default function AboutUs() {
@@ -45,6 +45,29 @@ export default function AboutUs() {
         </div>
       </section>
 
+      <section className="cdc-section">
+        <div className="cdc-shell">
+          <Reveal className="cdc-section-head">
+            <span className="cdc-script">Our Journey</span>
+            <h2>From a single mission to award-winning care</h2>
+            <p>Eight years of growth across Greater Sydney, one milestone at a time.</p>
+          </Reveal>
+          <div className="cdc-timeline">
+            {MILESTONES.map((m, i) => (
+              <div className="cdc-timeline-item" key={m.year}>
+                <Reveal as="div" className="cdc-timeline-card" style={{ transitionDelay: `${i * 60}ms` }}>
+                  <span className="cdc-timeline-year">{m.year}</span>
+                  <h3>{m.title}</h3>
+                  <p>{m.desc}</p>
+                </Reveal>
+                <div className="cdc-timeline-dot" />
+                <div className="cdc-timeline-spacer" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="cdc-section" style={{ background: "var(--graybg)" }}>
         <div className="cdc-shell">
           <Reveal className="cdc-section-head">
@@ -53,7 +76,7 @@ export default function AboutUs() {
           </Reveal>
           <div className="cdc-feature-grid">
             {WHY_CORE.map((f) => (
-              <Reveal as="div" className="cdc-feature-card" key={f.title}>
+              <Reveal as="div" className="cdc-feature-card" key={f.title} {...tiltHandlers(5)}>
                 <h3>{f.title}</h3>
                 <p>{f.desc}</p>
               </Reveal>

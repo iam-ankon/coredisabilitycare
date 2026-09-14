@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Quote, Users, BadgeCheck, CalendarHeart, HeartHandshake, ArrowRight as ArrowRightIcon } from "lucide-react";
-import { Reveal, Spark, CountUp, FaqItem } from "../components/ui.jsx";
-import { HERO_SLIDES, SERVICES, BLOCKS, GALLERY, TESTIMONIALS, IMG, NDIS_STATS, PROCESS_STEPS, FAQS, RESOURCES } from "../data.js";
+import { Reveal, Spark, CountUp, FaqItem, tiltHandlers, magneticHandlers, burstConfetti, FloatingBits, Marquee } from "../components/ui.jsx";
+import { HERO_SLIDES, SERVICES, BLOCKS, GALLERY, TESTIMONIALS, IMG, NDIS_STATS, PROCESS_STEPS, FAQS, RESOURCES, NSW_SUBURBS } from "../data.js";
 import { useSEO, SITE_URL } from "../hooks/useSEO.js";
 
 const STAT_ICONS = { Users, BadgeCheck, CalendarHeart, HeartHandshake };
@@ -43,10 +43,18 @@ export default function Home() {
   const nextT = () => setTIndex((i) => (i + 1) % TESTIMONIALS.length);
   const prevT = () => setTIndex((i) => (i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
 
+  const [testiPaused, setTestiPaused] = useState(false);
+  useEffect(() => {
+    if (testiPaused) return;
+    const id = setInterval(() => setTIndex((i) => (i + 1) % TESTIMONIALS.length), 6000);
+    return () => clearInterval(id);
+  }, [testiPaused]);
+
   return (
     <>
       {/* Hero */}
       <section className="cdc-hero">
+        <FloatingBits count={9} />
         <div className="cdc-hero-inner">
           <div className="cdc-hero-copy">
             <Spark className="spark1" color="#E91E8C" size={26} />
@@ -58,7 +66,14 @@ export default function Home() {
               with low-cost activities, Respite/STA homes and other NDIS services!
             </p>
             <div>
-              <Link to="/contact" className="cdc-btn cdc-btn-navy">Contact Us <ArrowUpRight size={17} /></Link>
+              <Link
+                to="/contact"
+                className="cdc-btn cdc-btn-navy"
+                onClick={burstConfetti}
+                {...magneticHandlers(12)}
+              >
+                Contact Us <ArrowUpRight size={17} />
+              </Link>
             </div>
           </div>
           <div className="cdc-hero-media">
@@ -83,6 +98,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Suburb ticker */}
+      <Marquee items={NSW_SUBURBS.map((s) => `${s.name} Day Program`)} speed={32} />
 
       {/* Stats band */}
       <section className="cdc-stats-band">
@@ -109,7 +127,7 @@ export default function Home() {
           </Reveal>
           <div className="cdc-services-grid">
             {SERVICES.map((s, i) => (
-              <Reveal as="article" className="cdc-card" key={s.title} style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
+              <Reveal as="article" className="cdc-card" key={s.title} style={{ transitionDelay: `${(i % 3) * 70}ms` }} {...tiltHandlers(6)}>
                 <img src={s.img} alt="" />
                 <div className="cdc-card-body">
                   <h3>{s.title}</h3>
@@ -126,7 +144,7 @@ export default function Home() {
       <section>
         <div className="cdc-blocks">
           {BLOCKS.map((b) => (
-            <Link to={b.to} className="cdc-block" key={b.key} style={{ background: b.color }}>
+            <Link to={b.to} className="cdc-block" key={b.key} style={{ background: b.color }} {...tiltHandlers(5)}>
               <div className="cdc-block-top">
                 <h3>{b.title}</h3>
                 <span className="cdc-block-arrow"><ArrowRight size={17} /></span>
@@ -147,7 +165,7 @@ export default function Home() {
           </Reveal>
           <div className="cdc-process-grid">
             {PROCESS_STEPS.map((p, i) => (
-              <Reveal as="div" className="cdc-process-card" key={p.step} style={{ transitionDelay: `${i * 80}ms` }}>
+              <Reveal as="div" className="cdc-process-card" key={p.step} style={{ transitionDelay: `${i * 80}ms` }} {...tiltHandlers(5)}>
                 <div className="cdc-process-num">{p.step}</div>
                 <h3>{p.title}</h3>
                 <p>{p.desc}</p>
@@ -173,11 +191,15 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="cdc-section cdc-testi-section">
+      <section
+        className="cdc-section cdc-testi-section"
+        onMouseEnter={() => setTestiPaused(true)}
+        onMouseLeave={() => setTestiPaused(false)}
+      >
         <div className="cdc-shell">
           <Reveal className="cdc-testi-wrap">
             <Quote size={28} className="quote" />
-            <p className="cdc-testi-text">&ldquo;{TESTIMONIALS[tIndex].quote}&rdquo;</p>
+            <p className="cdc-testi-text" key={tIndex}>&ldquo;{TESTIMONIALS[tIndex].quote}&rdquo;</p>
             <div className="cdc-testi-avatar">{TESTIMONIALS[tIndex].name.charAt(0)}</div>
             <p className="cdc-testi-name">{TESTIMONIALS[tIndex].name}</p>
             <p className="cdc-testi-role">{TESTIMONIALS[tIndex].role}</p>
@@ -189,6 +211,9 @@ export default function Home() {
                 ))}
               </div>
               <button className="cdc-testi-arrow" onClick={nextT} aria-label="Next testimonial"><ChevronRight size={17} /></button>
+            </div>
+            <div className="cdc-testi-progress">
+              <div key={`${tIndex}-${testiPaused}`} className={`cdc-testi-progress-bar${testiPaused ? "" : " playing"}`} style={{ "--testi-duration": "6s" }} />
             </div>
           </Reveal>
         </div>
@@ -219,7 +244,7 @@ export default function Home() {
           </Reveal>
           <div className="cdc-resource-grid">
             {RESOURCES.map((r, i) => (
-              <Reveal as="article" className="cdc-resource-card" key={r.title} style={{ transitionDelay: `${i * 70}ms` }}>
+              <Reveal as="article" className="cdc-resource-card" key={r.title} style={{ transitionDelay: `${i * 70}ms` }} {...tiltHandlers(5)}>
                 <img src={r.img} alt="" />
                 <div className="cdc-resource-body">
                   <span className="cdc-resource-tag">{r.tag}</span>

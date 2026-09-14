@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X, Phone, Instagram, Facebook, Youtube, ShieldCheck, BadgeCheck, Award, ChevronRight } from "lucide-react";
 import { CoreMark } from "./ui.jsx";
@@ -16,11 +16,19 @@ const NAV_LINKS = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dayOpen, setDayOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
       {/* Utility bar */}
-      <div className="cdc-utility">
+      <div className={`cdc-utility${scrolled ? " scrolled" : ""}`}>
         <div className="cdc-shell-wide cdc-utility-inner">
           <Link to="/" className="cdc-brand" aria-label="Core Disability Care — home">
             <CoreMark size={40} />
