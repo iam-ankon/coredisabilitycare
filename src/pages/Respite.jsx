@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Heart } from "lucide-react";
 import { PageHero, Reveal } from "../components/ui.jsx";
 import { IMG, RESPITE_BENEFITS } from "../data.js";
 import { useSEO } from "../hooks/useSEO.js";
@@ -14,7 +14,13 @@ export default function Respite() {
 
   return (
     <>
-      <PageHero eyebrow="Respite (STA)" title="A break that feels like a holiday" img={IMG.respiteBeach} color="var(--sky)">
+      <PageHero
+        eyebrow="Respite (STA)"
+        title="A break that feels like a holiday"
+        img={IMG.respiteBeach}
+        color="var(--sky)"
+        sticker={{ color: "purple", icon: Heart, label: "We ❤ NDIS" }}
+      >
         <p>We provide a safe and fun home for your loved one, so everyone can relax and re-energise with peace of mind.</p>
       </PageHero>
 

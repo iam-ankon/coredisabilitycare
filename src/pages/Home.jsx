@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Quote, Users, BadgeCheck, CalendarHeart, HeartHandshake, ArrowRight as ArrowRightIcon } from "lucide-react";
-import { Reveal, Spark, CountUp, FaqItem, tiltHandlers, magneticHandlers, burstConfetti, FloatingBits, Marquee } from "../components/ui.jsx";
+import { Reveal, Spark, CountUp, FaqItem, tiltHandlers, magneticHandlers, burstConfetti, FloatingBits, Marquee, StickerBadge, CircleFeature } from "../components/ui.jsx";
+import { ShieldCheck, Home as HomeIcon, Sparkles } from "lucide-react";
 import { HERO_SLIDES, SERVICES, BLOCKS, GALLERY, TESTIMONIALS, IMG, NDIS_STATS, PROCESS_STEPS, FAQS, RESOURCES, NSW_SUBURBS } from "../data.js";
 import { useSEO, SITE_URL } from "../hooks/useSEO.js";
 
@@ -78,6 +79,7 @@ export default function Home() {
           </div>
           <div className="cdc-hero-media">
             <img key={slide} src={HERO_SLIDES[slide].img} alt="Core Disability Care participants and support workers enjoying an activity together" />
+            <StickerBadge color="yellow" icon={Sparkles} label="Service with a smile" style={{ left: "auto", right: "1.4rem", bottom: "auto", top: "1.4rem" }} />
             <div className="cdc-hero-dots">
               {HERO_SLIDES.map((_, i) => (
                 <button key={i} className={`cdc-hero-dot${i === slide ? " active" : ""}`} onClick={() => setSlide(i)} aria-label={`Show slide ${i + 1}`} />
@@ -98,6 +100,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Circle feature badges */}
+      <div className="cdc-shell">
+        <Reveal className="cdc-circle-row">
+          <CircleFeature color="pink" icon={ShieldCheck} label="Registered High Intensity Provider" />
+          <CircleFeature color="sky" icon={HomeIcon} label="Fabulous SIL and STA Homes" />
+          <CircleFeature color="purple" icon={Sparkles} label="Exciting Variety of Day Programs" />
+        </Reveal>
+      </div>
 
       {/* Suburb ticker */}
       <Marquee items={NSW_SUBURBS.map((s) => `${s.name} Day Program`)} speed={32} />

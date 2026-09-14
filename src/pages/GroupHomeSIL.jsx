@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Home, Car, Clock3 } from "lucide-react";
-import { PageHero, Reveal, tiltHandlers } from "../components/ui.jsx";
-import { IMG } from "../data.js";
+import { PageHero, Reveal, tiltHandlers, FeatureTabs } from "../components/ui.jsx";
+import { IMG, SIL_FEATURE_TABS } from "../data.js";
 import { useSEO } from "../hooks/useSEO.js";
 
 const SIL_SERVICES = [
@@ -20,7 +20,13 @@ export default function GroupHomeSIL() {
 
   return (
     <>
-      <PageHero eyebrow="Supported Independent Living" title="Fabulous Group Homes (SIL)" img={IMG.silRoom} color="var(--pink)">
+      <PageHero
+        eyebrow="Supported Independent Living"
+        title="Fabulous Group Homes (SIL)"
+        img={IMG.silRoom}
+        color="var(--pink)"
+        sticker={{ color: "purple", icon: Home, label: "Great Locations!" }}
+      >
         <p>Experience the Core Lifestyle with 24/7 tailored supports, in a home that's genuinely yours.</p>
       </PageHero>
 
@@ -28,32 +34,10 @@ export default function GroupHomeSIL() {
         <div className="cdc-shell">
           <Reveal className="cdc-section-head">
             <span className="cdc-script">Core Home Features</span>
-            <h2>It's your room, your way</h2>
+            <h2>Take a look around</h2>
+            <p>Every Core home is different, but here's what you can expect from rooms to routines.</p>
           </Reveal>
-          <div className="cdc-activity">
-            <img src={IMG.silRoom} alt="A bright, comfortable bedroom in a Core Disability Care group home" />
-            <div>
-              <h3>It's Your Room</h3>
-              <p className="desc">Every participant's room is set up around what matters to them — comfort, privacy and a space that feels like home.</p>
-            </div>
-          </div>
-          <div className="cdc-activity reverse">
-            <img src={IMG.silLiving} alt="A spacious, welcoming living room in a Core Disability Care group home" />
-            <div>
-              <h3>Spacious Living Rooms</h3>
-              <p className="desc">Shared spaces designed for connection — comfortable, accessible and easy to relax in with housemates and visitors.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="cdc-section" style={{ background: "var(--graybg)" }}>
-        <div className="cdc-shell">
-          <Reveal className="cdc-section-head">
-            <span className="cdc-script">Getting around</span>
-            <h2>Accessible transport, on your terms</h2>
-            <p>Whether you prefer using our vehicles or want to build your own travel skills, we're dedicated to supporting you every step of the way. You can also sign over your NDIS transport allowance to use our vans.</p>
-          </Reveal>
+          <FeatureTabs tabs={SIL_FEATURE_TABS} />
         </div>
       </section>
 

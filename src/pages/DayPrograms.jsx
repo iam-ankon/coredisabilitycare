@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
-import { PageHero, Reveal } from "../components/ui.jsx";
-import { IMG, NSW_SUBURBS, ACTIVITIES } from "../data.js";
+import { ArrowUpRight, CheckCircle2, PartyPopper } from "lucide-react";
+import { PageHero, Reveal, ArrowCarousel } from "../components/ui.jsx";
+import { IMG, NSW_SUBURBS, ACTIVITIES, GALLERY } from "../data.js";
 import { useSEO } from "../hooks/useSEO.js";
 
 export default function DayPrograms() {
@@ -14,7 +14,13 @@ export default function DayPrograms() {
 
   return (
     <>
-      <PageHero eyebrow="We have vacancies" title="Day Programs" img={IMG.dayprograms} color="var(--green)">
+      <PageHero
+        eyebrow="We have vacancies"
+        title="Day Programs"
+        img={IMG.dayprograms}
+        color="var(--green)"
+        sticker={{ color: "pink", icon: PartyPopper, label: "Great Locations!" }}
+      >
         <p>Make connections with your local community through centre-based and community-based activities of your choosing.</p>
       </PageHero>
 
@@ -48,7 +54,7 @@ export default function DayPrograms() {
           </Reveal>
           {ACTIVITIES.map((a, i) => (
             <Reveal as="div" className={`cdc-activity${i % 2 ? " reverse" : ""}`} key={a.title}>
-              <img src={a.img} alt={a.title} />
+              <ArrowCarousel images={[a.img, GALLERY[i % GALLERY.length], GALLERY[(i + 1) % GALLERY.length]]} alt={a.title} />
               <div>
                 <h3>{a.title}</h3>
                 <p className="desc">{a.desc}</p>

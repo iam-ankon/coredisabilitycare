@@ -105,6 +105,81 @@ export const WHY_CORE = [
   { title: "Savvy and Innovative", desc: "Core Disability Care is not your typical NDIS provider. We're savvy, innovative, and proud of the work we do." },
 ];
 
+export const SIL_FEATURE_TABS = [
+  {
+    key: "rooms",
+    label: "Rooms",
+    img: IMG.silRoom,
+    title: "It's Your Room",
+    desc: "Every participant's room is set up around what matters to them — comfort, privacy and a space that genuinely feels like home.",
+    features: ["Private, lockable bedroom", "Personalised decor welcome", "Adjustable beds available", "Ceiling hoists on request"],
+  },
+  {
+    key: "lounge",
+    label: "Lounge",
+    img: IMG.silLiving,
+    title: "Spacious Living Rooms",
+    desc: "Shared spaces designed for connection — comfortable, accessible and easy to relax in with housemates and visitors.",
+    features: ["Smart TV and streaming", "Accessible, wide walkways", "Quiet corners for downtime", "Room for visitors to stay"],
+  },
+  {
+    key: "kitchen",
+    label: "Kitchen",
+    img: IMG.home,
+    title: "A Kitchen You Can Use",
+    desc: "Height-adjustable benches and accessible appliances mean you can cook, or learn to, at your own pace.",
+    features: ["Height-adjustable benchtops", "Accessible appliances", "Support to build cooking skills", "Dietary needs catered for"],
+  },
+  {
+    key: "food",
+    label: "Food",
+    img: IMG.social,
+    title: "Meals Your Way",
+    desc: "From meal planning to grocery runs, support workers help you eat well without losing choice over what's on your plate.",
+    features: ["Weekly meal planning", "Grocery shopping support", "Cultural and dietary preferences", "Cooking skills program"],
+  },
+  {
+    key: "transport",
+    label: "Transport",
+    img: IMG.hero2,
+    title: "Accessible Transport, On Your Terms",
+    desc: "Whether you prefer our accessible vehicles or want to build your own travel skills, we support you every step of the way.",
+    features: ["Wheelchair-accessible vehicles", "NDIS transport allowance accepted", "Travel training available", "Trips to appointments and outings"],
+  },
+  {
+    key: "laundry",
+    label: "Laundry",
+    img: IMG.home,
+    title: "Laundry Made Easy",
+    desc: "Accessible laundry facilities and as much or as little support as you need to keep on top of it.",
+    features: ["Front-loading accessible machines", "Rostered support available", "Skill-building encouraged", "Linen service on request"],
+  },
+  {
+    key: "outdoor",
+    label: "Outdoor",
+    img: IMG.respiteBeach,
+    title: "Room to Breathe Outside",
+    desc: "Every home has an outdoor space to unwind, garden or just get some fresh air with housemates.",
+    features: ["Accessible outdoor areas", "Undercover alfresco seating", "Garden beds at some homes", "Pet-friendly by arrangement"],
+  },
+  {
+    key: "hobbies",
+    label: "Hobbies",
+    img: IMG.g2,
+    title: "Time for What You Love",
+    desc: "Support workers help you keep doing the hobbies you love, or discover new ones close to home.",
+    features: ["1:1 hobby time built into your plan", "Local clubs and classes", "Art, music and craft supplies", "Community group outings"],
+  },
+  {
+    key: "support",
+    label: "Active Support",
+    img: IMG.coordination,
+    title: "24/7 Active Support",
+    desc: "Our team uses an Active Support model — helping you do things with you, not for you, so you build skills every day.",
+    features: ["24/7 on-site support team", "Active Support trained staff", "Individual support plans", "Regular family check-ins"],
+  },
+];
+
 export const ACTIVITIES = [
   {
     title: "Fishing Club",

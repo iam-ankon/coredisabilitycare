@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Plus, Minus } from "lucide-react";
+import { Plus, Minus, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
 
 export function useReveal() {
   const ref = useRef(null);
@@ -47,9 +47,10 @@ export function Spark({ className = "", color = "#E91E8C", size = 30 }) {
   );
 }
 
-export function PageHero({ eyebrow, title, children, img, color = "var(--sky)" }) {
+export function PageHero({ eyebrow, title, children, img, color = "var(--sky)", sticker }) {
   return (
     <section className="cdc-pagehero" style={{ background: color }}>
+      <span className="cdc-sunburst" aria-hidden="true" />
       <div className="cdc-shell cdc-pagehero-inner">
         <div className="cdc-pagehero-copy">
           {eyebrow && <span className="cdc-script" style={{ color: "rgba(255,255,255,.85)" }}>{eyebrow}</span>}
@@ -59,10 +60,103 @@ export function PageHero({ eyebrow, title, children, img, color = "var(--sky)" }
         {img && (
           <div className="cdc-pagehero-media">
             <img src={img} alt="" />
+            {sticker && <StickerBadge {...sticker} />}
           </div>
         )}
       </div>
     </section>
+  );
+}
+
+// Circular "sticker" badge that overlaps a photo corner — icon + short label.
+export function StickerBadge({ color = "pink", icon: Icon, label, style }) {
+  return (
+    <div className={`cdc-sticker cdc-sticker-${color}`} style={style}>
+      {Icon && <Icon size={20} />}
+      <span>{label}</span>
+    </div>
+  );
+}
+
+// Big circular feature badge, used in a row directly under a hero.
+export function CircleFeature({ color = "pink", icon: Icon, label }) {
+  return (
+    <div className={`cdc-circle-feature cdc-circle-feature-${color}`}>
+      {Icon && <Icon size={26} />}
+      <span>{label}</span>
+    </div>
+  );
+}
+
+// Image carousel with floating prev/next circular arrow buttons.
+// Falls back to a plain image when there's only one to show.
+export function ArrowCarousel({ images, alt = "" }) {
+  const [i, setI] = useState(0);
+  const list = images.filter(Boolean);
+  useEffect(() => setI(0), [images]);
+  if (list.length === 0) return null;
+  return (
+    <div className="cdc-arrow-carousel">
+      <img src={list[i]} alt={alt} />
+      {list.length > 1 && (
+        <>
+          <button
+            type="button"
+            className="cdc-arrow-btn cdc-arrow-prev"
+            onClick={() => setI((v) => (v - 1 + list.length) % list.length)}
+            aria-label="Previous photo"
+          >
+            <ChevronLeft size={18} />
+          </button>
+          <button
+            type="button"
+            className="cdc-arrow-btn cdc-arrow-next"
+            onClick={() => setI((v) => (v + 1) % list.length)}
+            aria-label="Next photo"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </>
+      )}
+    </div>
+  );
+}
+
+// Pill tab bar that swaps a full image + copy + feature-list panel below it —
+// e.g. "Rooms / Kitchen / Lounge / Transport" for a group home walkthrough.
+export function FeatureTabs({ tabs }) {
+  const [active, setActive] = useState(0);
+  const t = tabs[active];
+  return (
+    <div className="cdc-feature-tabs">
+      <div className="cdc-feature-tabs-bar" role="tablist">
+        {tabs.map((tab, i) => (
+          <button
+            key={tab.key}
+            role="tab"
+            aria-selected={i === active}
+            className={`cdc-feature-tab${i === active ? " active" : ""}`}
+            onClick={() => setActive(i)}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+      <div className="cdc-feature-panel" key={t.key}>
+        <Reveal><ArrowCarousel images={t.images || [t.img]} alt={t.title} /></Reveal>
+        <Reveal>
+          <h3>{t.title}</h3>
+          <p className="desc">{t.desc}</p>
+          {t.features && (
+            <ul className="cdc-outcomes">
+              {t.features.map((f) => (
+                <li key={f}><CheckCircle2 size={17} />{f}</li>
+              ))}
+            </ul>
+          )}
+        </Reveal>
+      </div>
+    </div>
   );
 }
 
