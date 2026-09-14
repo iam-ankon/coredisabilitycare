@@ -47,31 +47,6 @@ export function Spark({ className = "", color = "#E91E8C", size = 30 }) {
   );
 }
 
-export function CoreMark({ size = 42, dark = false }) {
-  const dots = [
-    { a: 0, r: 15, c: "#2E9FE0" },
-    { a: 40, r: 16, c: "#E91E8C" },
-    { a: 80, r: 14, c: "#F7941D" },
-    { a: 120, r: 16, c: "#7AC142" },
-    { a: 160, r: 15, c: "#2E9FE0" },
-    { a: 200, r: 16, c: "#E91E8C" },
-    { a: 240, r: 14, c: "#F7941D" },
-    { a: 280, r: 16, c: "#7AC142" },
-    { a: 320, r: 15, c: "#2E9FE0" },
-  ];
-  return (
-    <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden="true">
-      {dots.map((d, i) => {
-        const rad = (d.a * Math.PI) / 180;
-        const x = 24 + d.r * Math.cos(rad);
-        const y = 24 + d.r * Math.sin(rad);
-        return <circle key={i} cx={x} cy={y} r={i % 2 === 0 ? 3.4 : 2.6} fill={d.c} />;
-      })}
-      <circle cx="24" cy="24" r="7" fill={dark ? "#FFFFFF" : "#16213E"} />
-    </svg>
-  );
-}
-
 export function PageHero({ eyebrow, title, children, img, color = "var(--sky)" }) {
   return (
     <section className="cdc-pagehero" style={{ background: color }}>

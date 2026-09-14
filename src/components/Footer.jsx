@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Phone, Mail, Instagram, Facebook, Youtube, ShieldCheck, BadgeCheck, ArrowRight } from "lucide-react";
-import { CoreMark } from "./ui.jsx";
 import { NSW_SUBURBS } from "../data.js";
 
 export default function Footer() {
@@ -10,9 +9,9 @@ export default function Footer() {
       <div className="cdc-shell-wide">
         <div className="cdc-footer-top">
           <div className="cdc-footer-brand">
-            <CoreMark size={64} dark />
-            <div style={{ marginTop: "1rem", fontFamily: "'Baloo 2', sans-serif", fontSize: "1.7rem", fontWeight: 700 }}>
-              <span style={{ color: "var(--sky)" }}>core</span> <span style={{ color: "var(--white)" }}>care</span>
+            <img src="/brand/logo-icon.png" alt="Core Disability Care" className="cdc-footer-logo" />
+            <div style={{ marginTop: "1rem", fontFamily: "'Baloo 2', sans-serif", fontSize: "1.4rem", fontWeight: 700, color: "var(--white)" }}>
+              Core Disability Care
             </div>
             <p>NDIS Registered Provider and Registered High Intensity Support Provider. We're passionate about creating opportunities for people with disability to live the life they love.</p>
             <div className="cdc-footer-badges">

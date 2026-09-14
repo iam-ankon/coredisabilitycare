@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X, Phone, Instagram, Facebook, Youtube, ShieldCheck, BadgeCheck, Award, ChevronRight } from "lucide-react";
-import { CoreMark } from "./ui.jsx";
 import { NSW_SUBURBS } from "../data.js";
 
 const NAV_LINKS = [
@@ -31,8 +30,7 @@ export default function Header() {
       <div className={`cdc-utility${scrolled ? " scrolled" : ""}`}>
         <div className="cdc-shell-wide cdc-utility-inner">
           <Link to="/" className="cdc-brand" aria-label="Core Disability Care — home">
-            <CoreMark size={40} />
-            <strong>core<span> care</span></strong>
+            <img src="/brand/logo-full.png" alt="Core Disability Care" className="cdc-brand-logo" />
           </Link>
 
           <div className="cdc-badges">
@@ -96,7 +94,10 @@ export default function Header() {
         <div className={`cdc-mobile-backdrop${menuOpen ? " open" : ""}`} onClick={() => setMenuOpen(false)} />
         <div className={`cdc-mobile-nav${menuOpen ? " open" : ""}`}>
           <div className="cdc-mobile-nav-head">
-            <span className="cdc-brand" style={{ pointerEvents: "none" }}><CoreMark size={30} dark /><strong style={{ color: "var(--white)" }}>core care</strong></span>
+            <span className="cdc-brand" style={{ pointerEvents: "none" }}>
+              <img src="/brand/logo-icon.png" alt="" className="cdc-brand-icon" />
+              <strong style={{ color: "var(--white)" }}>Core Disability Care</strong>
+            </span>
             <button className="cdc-menu-btn" aria-label="Close menu" onClick={() => setMenuOpen(false)}><X size={18} /></button>
           </div>
           {NAV_LINKS.map((l) => (

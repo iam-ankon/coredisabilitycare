@@ -92,6 +92,10 @@
 .cdc-brand { display: flex; align-items: center; gap: .6rem; }
 .cdc-brand strong { font-family: 'Baloo 2', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--sky); }
 .cdc-brand strong span { color: var(--navy); }
+.cdc-brand-logo { height: 44px; width: auto; }
+.cdc-brand-icon { height: 30px; width: auto; }
+.cdc-footer-logo { height: 58px; width: auto; }
+@media (max-width: 720px) { .cdc-brand-logo { height: 34px; } }
 .cdc-badges { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; transition: opacity .25s ease, width .25s ease; }
 .cdc-badge-pill {
   display: inline-flex; align-items: center; gap: .35rem; font-size: .7rem; font-weight: 700;
