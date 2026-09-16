@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Quote, Users, BadgeCheck, CalendarHeart, HeartHandshake, ArrowRight as ArrowRightIcon } from "lucide-react";
-import { Reveal, Spark, CountUp, FaqItem, tiltHandlers, magneticHandlers, burstConfetti, FloatingBits, Marquee, StickerBadge, CircleFeature } from "../components/ui.jsx";
+import { Reveal, Spark, CountUp, FaqItem, tiltHandlers, magneticHandlers, burstConfetti, FloatingBits, Marquee, StickerBadge, CircleFeature, PolaroidWall } from "../components/ui.jsx";
 import { ShieldCheck, Home as HomeIcon, Sparkles } from "lucide-react";
-import { HERO_SLIDES, SERVICES, BLOCKS, GALLERY, TESTIMONIALS, IMG, NDIS_STATS, PROCESS_STEPS, FAQS, RESOURCES, NSW_SUBURBS } from "../data.js";
+import { HERO_SLIDES, SERVICES, BLOCKS, GALLERY, TESTIMONIALS, IMG, REAL_PHOTOS, NDIS_STATS, PROCESS_STEPS, FAQS, RESOURCES, NSW_SUBURBS } from "../data.js";
 import { useSEO, SITE_URL } from "../hooks/useSEO.js";
 
 const STAT_ICONS = { Users, BadgeCheck, CalendarHeart, HeartHandshake };
@@ -109,6 +109,24 @@ export default function Home() {
           <CircleFeature color="purple" icon={Sparkles} label="Exciting Variety of Day Programs" />
         </Reveal>
       </div>
+
+      {/* Real Moments corkboard — genuine, unposed photos from our programs */}
+      <section className="cdc-section" style={{ paddingBottom: "3.5rem" }}>
+        <div className="cdc-shell">
+          <Reveal className="cdc-section-head">
+            <span className="cdc-script">Real families, real Core</span>
+            <h2>Not stock photos — actual moments</h2>
+            <p>Pulled straight from our Day Programs, SIL homes and family lounge rooms.</p>
+          </Reveal>
+          <PolaroidWall
+            photos={[
+              { src: REAL_PHOTOS.familyGlasses, rotate: -5, pin: "pink", caption: "Bean bag catch-up ☺", alt: "A support worker and a participant sharing a laugh on a bean bag" },
+              { src: REAL_PHOTOS.boyBlocks, rotate: 4, pin: "sky", caption: "Building & sorting time", alt: "A participant playing with colourful blocks at a Day Program" },
+              { src: REAL_PHOTOS.grandmaTablet, rotate: -3, pin: "yellow", caption: "Sofa & screen time", alt: "A participant and family member laughing together on the couch" },
+            ]}
+          />
+        </div>
+      </section>
 
       {/* Suburb ticker */}
       <Marquee items={NSW_SUBURBS.map((s) => `${s.name} Day Program`)} speed={32} />

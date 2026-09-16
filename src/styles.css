@@ -712,6 +712,49 @@
   .cdc-timeline-dot { left: 18px; top: 2.4rem; }
 }
 
+/* Corkboard of real, pinned photos ("Real Moments" section) */
+.cdc-corkboard {
+  position: relative; display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start;
+  gap: 2.5rem 3rem; padding: 3rem clamp(1rem, 4vw, 3rem) 2.5rem; border-radius: 2rem;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.5), transparent 40%),
+    repeating-linear-gradient(45deg, rgba(0,0,0,.03) 0 2px, transparent 2px 5px),
+    linear-gradient(135deg, #C9A06A, #B98653 60%, #A9764A);
+  box-shadow: inset 0 0 0 10px rgba(139,94,52,.35), 0 30px 60px -34px rgba(74,42,16,.5);
+}
+.cdc-corkboard-string {
+  position: absolute; left: 8%; right: 8%; top: 2.6rem; height: 40px; z-index: 0; pointer-events: none;
+  background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.55) 0 14px, transparent 14px 26px);
+  background-position: center 6px; background-size: 26px 3px; background-repeat: repeat-x;
+  -webkit-mask-image: radial-gradient(ellipse 90% 100% at 50% -40%, transparent 55%, #000 56%);
+  mask-image: radial-gradient(ellipse 90% 100% at 50% -40%, transparent 55%, #000 56%);
+  opacity: .6;
+}
+.cdc-polaroid {
+  position: relative; z-index: 1; margin: 0; background: var(--white); padding: .9rem .9rem 1.6rem;
+  width: min(280px, 78vw); border-radius: .2rem; box-shadow: 0 22px 40px -18px rgba(30,16,4,.5);
+  transform: rotate(var(--tilt, -3deg)); transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease;
+}
+.cdc-polaroid:hover { transform: rotate(0deg) translateY(-8px) scale(1.04); box-shadow: 0 32px 54px -20px rgba(30,16,4,.55); z-index: 3; }
+.cdc-polaroid img { width: 100%; height: 250px; object-fit: cover; border-radius: 1px; }
+.cdc-polaroid figcaption {
+  font-family: 'Caveat', cursive; font-size: 1.35rem; font-weight: 700; color: var(--navy);
+  text-align: center; margin-top: .7rem; line-height: 1.15;
+}
+.cdc-pin {
+  position: absolute; top: -14px; left: 50%; margin-left: -10px; width: 20px; height: 20px; border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,.4), inset 0 -3px 4px rgba(0,0,0,.25), inset 0 2px 3px rgba(255,255,255,.6);
+  z-index: 2;
+}
+.cdc-pin-pink { background: radial-gradient(circle at 35% 30%, #FF7FC3, var(--pink)); }
+.cdc-pin-sky { background: radial-gradient(circle at 35% 30%, #9DB1FF, var(--sky)); }
+.cdc-pin-yellow { background: radial-gradient(circle at 35% 30%, #FFE499, var(--yellow)); }
+@media (max-width: 720px) {
+  .cdc-corkboard { gap: 2.2rem 1.5rem; }
+  .cdc-polaroid { width: min(240px, 82vw); }
+  .cdc-polaroid img { height: 210px; }
+}
+
 /* Global polish */
 .cdc { scrollbar-width: thin; scrollbar-color: var(--pink) var(--graybg); }
 .cdc ::-webkit-scrollbar { width: 10px; height: 10px; }

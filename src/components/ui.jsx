@@ -304,6 +304,29 @@ export function FaqItem({ q, a, defaultOpen = false }) {
   );
 }
 
+// A pinned corkboard of real, unposed photos — each one tilted like it was
+// stuck up by hand, with a handwritten caption. Deliberately imperfect
+// (varied rotation + pin colour) so it reads as a memory wall, not a grid.
+export function PolaroidWall({ photos }) {
+  return (
+    <div className="cdc-corkboard">
+      <div className="cdc-corkboard-string" aria-hidden="true" />
+      {photos.map((p, i) => (
+        <Reveal
+          as="figure"
+          className="cdc-polaroid"
+          key={p.src}
+          style={{ "--tilt": `${p.rotate}deg`, transitionDelay: `${i * 110}ms` }}
+        >
+          <span className={`cdc-pin cdc-pin-${p.pin || "pink"}`} aria-hidden="true" />
+          <img src={p.src} alt={p.alt || ""} loading="lazy" />
+          <figcaption>{p.caption}</figcaption>
+        </Reveal>
+      ))}
+    </div>
+  );
+}
+
 export function CtaBand() {
   return (
     <div className="cdc-cta-band">
