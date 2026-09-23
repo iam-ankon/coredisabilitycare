@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Quote, Users, BadgeCheck, CalendarHeart, HeartHandshake, ArrowRight as ArrowRightIcon } from "lucide-react";
 import { Reveal, Spark, CountUp, FaqItem, tiltHandlers, magneticHandlers, burstConfetti, FloatingBits, Marquee, StickerBadge, CircleFeature, PolaroidWall } from "../components/ui.jsx";
 import { ShieldCheck, Home as HomeIcon, Sparkles } from "lucide-react";
-import { HERO_SLIDES, SERVICES, BLOCKS, GALLERY, TESTIMONIALS, IMG, REAL_PHOTOS, NDIS_STATS, PROCESS_STEPS, FAQS, RESOURCES, NSW_SUBURBS } from "../data.js";
+import { HERO_SLIDES, BLOCKS, GALLERY, TESTIMONIALS, IMG, REAL_PHOTOS, NDIS_STATS, PROCESS_STEPS, FAQS, RESOURCES, NSW_SUBURBS } from "../data.js";
 import { useSEO, SITE_URL } from "../hooks/useSEO.js";
 
 const STAT_ICONS = { Users, BadgeCheck, CalendarHeart, HeartHandshake };
@@ -144,28 +144,6 @@ export default function Home() {
               </Reveal>
             );
           })}
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="cdc-section">
-        <div className="cdc-shell">
-          <Reveal className="cdc-section-head">
-            <span className="cdc-script">Our Services</span>
-            <h2>Everything you need, all in one place</h2>
-          </Reveal>
-          <div className="cdc-services-grid">
-            {SERVICES.map((s, i) => (
-              <Reveal as="article" className="cdc-card" key={s.title} style={{ transitionDelay: `${(i % 3) * 70}ms` }} {...tiltHandlers(6)}>
-                <img src={s.img} alt="" />
-                <div className="cdc-card-body">
-                  <h3>{s.title}</h3>
-                  <p>{s.desc}</p>
-                  <Link to={`/${s.slug}`} className="cdc-btn cdc-btn-ghost cdc-btn-sm">View Service <ArrowUpRight size={15} /></Link>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

@@ -104,6 +104,7 @@
 }
 .cdc-badge-pill.green { background: #E9F6DE; color: #4C7A21; border: 1px solid #B9E197; }
 .cdc-badge-pill.navy { background: #EAF0FB; color: var(--navy); border: 1px solid #C6D5F2; }
+.cdc-badge-pill.pink { background: #FCE8FB; color: var(--pink); border: 1px solid #F0C2EE; }
 .cdc-badge-pill.dark { background: var(--grad-fun); color: var(--white); }
 .cdc-utility-actions { display: flex; align-items: center; gap: 1rem; }
 .cdc-call { display: flex; align-items: center; gap: .55rem; }
@@ -137,7 +138,7 @@
 .cdc-menu-btn { display: none; width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: var(--white); align-items: center; justify-content: center; border: none; }
 
 /* Second nav bar */
-.cdc-navbar { background: var(--navy); }
+.cdc-navbar { background: var(--purple); }
 .cdc-navbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .cdc-nav { display: flex; align-items: center; gap: 1.8rem; }
 .cdc-nav-item { position: relative; }
@@ -149,7 +150,7 @@
 .cdc-nav-link.active { opacity: 1; color: var(--white); background: var(--pink); }
 .cdc-nav-link { position: relative; }
 .cdc-dropdown {
-  position: absolute; top: 100%; left: 0; background: var(--navy-2); min-width: 220px;
+  position: absolute; top: 100%; left: 0; background: var(--purple-dark); min-width: 220px;
   border-radius: 0 0 .6rem .6rem; box-shadow: 0 20px 40px -20px rgba(0,0,0,.5); overflow: hidden; z-index: 50;
 }
 .cdc-dropdown a { display: block; padding: .7rem 1rem; color: var(--white); font-size: .85rem; font-weight: 600; }

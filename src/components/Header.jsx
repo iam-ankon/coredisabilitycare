@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X, Phone, Instagram, Facebook, Youtube, ShieldCheck, BadgeCheck, Award, ChevronRight } from "lucide-react";
+import { Menu, X, Phone, Instagram, Facebook, Youtube, ShieldCheck, Award, ChevronRight } from "lucide-react";
 import { NSW_SUBURBS } from "../data.js";
 
 const NAV_LINKS = [
@@ -34,8 +34,7 @@ export default function Header() {
           </Link>
 
           <div className="cdc-badges">
-            <span className="cdc-badge-pill green"><ShieldCheck size={13} /> High Intensity Registered</span>
-            <span className="cdc-badge-pill navy"><BadgeCheck size={13} /> NDIS Registered Provider</span>
+            <span className="cdc-badge-pill pink"><ShieldCheck size={13} /> High Intensity Registered</span>
             <span className="cdc-badge-pill dark"><Award size={13} /> Best Workplace 2026</span>
           </div>
 
