@@ -765,3 +765,30 @@
   .cdc-hero::before, .cdc-hero::after, .cdc-hero-copy .spark1, .cdc-hero-copy .spark2,
   .cdc-utility::before, .cdc-cta-band, .cdc-footer::before { animation: none; }
 }
+
+/* Folder-style info tabs (What We Do / Our Team / Our Mission) */
+.cdc-info-tabs { max-width: 820px; margin: 0 auto; }
+.cdc-info-tabs-bar { display: flex; flex-wrap: wrap; position: relative; z-index: 1; }
+.cdc-info-tab {
+  font-family: 'Baloo 2', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--purple);
+  background: none; border: 1px solid transparent; border-bottom: 0; border-radius: .6rem .6rem 0 0;
+  padding: .85rem 1.6rem .75rem; margin-bottom: -1px; transition: color .2s ease, background .2s ease;
+}
+.cdc-info-tab:hover:not(.active) { color: var(--sky); }
+.cdc-info-tab.active { color: var(--sky); background: var(--white); border-color: var(--line); }
+.cdc-info-panel {
+  border: 1px solid var(--line); border-radius: 0 .8rem .8rem .8rem; background: var(--white);
+  padding: 1.6rem 1.8rem; color: var(--ink-soft); font-size: 1.02rem;
+  box-shadow: 0 24px 50px -36px rgba(36,18,56,.35); animation: cdc-info-fade .3s ease;
+}
+.cdc-info-panel p + p, .cdc-info-panel ul + p { margin-top: .6rem; }
+.cdc-info-panel strong { color: var(--navy); }
+.cdc-info-panel ul { list-style: disc; padding-left: 1.4rem; margin: .7rem 0; }
+.cdc-info-panel li + li { margin-top: .25rem; }
+.cdc-info-panel li::marker { color: var(--pink); }
+@keyframes cdc-info-fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (max-width: 720px) {
+  .cdc-info-tab { font-size: 1rem; padding: .7rem 1rem .6rem; }
+  .cdc-info-panel { padding: 1.3rem 1.2rem; border-radius: 0 0 .8rem .8rem; }
+}
+@media (prefers-reduced-motion: reduce) { .cdc-info-panel { animation: none; } }

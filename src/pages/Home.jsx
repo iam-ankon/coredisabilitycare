@@ -1,10 +1,49 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Quote, ArrowRight as ArrowRightIcon } from "lucide-react";
-import { Reveal, Spark, FaqItem, tiltHandlers, magneticHandlers, burstConfetti, FloatingBits, StickerBadge, CircleFeature, PolaroidWall } from "../components/ui.jsx";
+import { Reveal, Spark, FaqItem, tiltHandlers, magneticHandlers, burstConfetti, FloatingBits, StickerBadge, CircleFeature, PolaroidWall, InfoTabs } from "../components/ui.jsx";
 import { ShieldCheck, Home as HomeIcon, Sparkles } from "lucide-react";
 import { HERO_SLIDES, BLOCKS, GALLERY, TESTIMONIALS, IMG, REAL_PHOTOS, PROCESS_STEPS, FAQS, RESOURCES } from "../data.js";
 import { useSEO, SITE_URL } from "../hooks/useSEO.js";
+
+const ABOUT_TABS = [
+  {
+    label: "What We Do",
+    content: (
+      <>
+        <p>We deliver <strong>person-centred disability support</strong> built around three goals:</p>
+        <ul>
+          <li>Growing independence</li>
+          <li>Opening up new opportunities</li>
+          <li>Strengthening connection with the community</li>
+        </ul>
+        <p>Every service is shaped around the individual, so each participant is supported with dignity, respect and real choice.</p>
+      </>
+    ),
+  },
+  {
+    label: "Our Team",
+    content: (
+      <p>
+        Our leadership team brings together a wide mix of skills, experience and backgrounds.
+        Working as one keeps our support grounded in <strong>best practice</strong> and is what
+        makes Core different. We partner closely with participants, families and other NDIS
+        providers to link people with the tools and resources they need.
+      </p>
+    ),
+  },
+  {
+    label: "Our Mission",
+    content: (
+      <p>
+        At Core Disability Care, we believe in building a community where every person living
+        with disability has the chance to thrive. Through the{" "}
+        <strong>National Disability Insurance Scheme (NDIS)</strong>, we deliver support that
+        makes a genuine, lasting difference.
+      </p>
+    ),
+  },
+];
 
 export default function Home() {
   const [slide, setSlide] = useState(0);
@@ -123,6 +162,15 @@ export default function Home() {
               { src: REAL_PHOTOS.grandmaTablet, rotate: -3, pin: "yellow", caption: "Sofa & screen time", alt: "A participant and family member laughing together on the couch" },
             ]}
           />
+        </div>
+      </section>
+
+      {/* About tabs — What We Do / Our Team / Our Mission */}
+      <section className="cdc-section" style={{ paddingTop: 0 }}>
+        <div className="cdc-shell">
+          <Reveal>
+            <InfoTabs id="about-tabs" tabs={ABOUT_TABS} />
+          </Reveal>
         </div>
       </section>
 

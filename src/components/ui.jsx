@@ -160,6 +160,51 @@ export function FeatureTabs({ tabs }) {
   );
 }
 
+// Folder-style text tabs: a row of labels sitting on top of a bordered panel,
+// with the active tab "opening" into the panel. Arrow keys move between tabs.
+export function InfoTabs({ tabs, id = "info-tabs" }) {
+  const [active, setActive] = useState(0);
+  const btns = useRef([]);
+  const onKeyDown = (e) => {
+    const dir = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+    if (!dir) return;
+    e.preventDefault();
+    const next = (active + dir + tabs.length) % tabs.length;
+    setActive(next);
+    btns.current[next]?.focus();
+  };
+  return (
+    <div className="cdc-info-tabs">
+      <div className="cdc-info-tabs-bar" role="tablist" onKeyDown={onKeyDown}>
+        {tabs.map((tab, i) => (
+          <button
+            key={tab.label}
+            ref={(el) => (btns.current[i] = el)}
+            role="tab"
+            id={`${id}-tab-${i}`}
+            aria-selected={i === active}
+            aria-controls={`${id}-panel-${i}`}
+            tabIndex={i === active ? 0 : -1}
+            className={`cdc-info-tab${i === active ? " active" : ""}`}
+            onClick={() => setActive(i)}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+      <div
+        className="cdc-info-panel"
+        role="tabpanel"
+        id={`${id}-panel-${active}`}
+        aria-labelledby={`${id}-tab-${active}`}
+        key={active}
+      >
+        {tabs[active].content}
+      </div>
+    </div>
+  );
+}
+
 export function CountUp({ value, suffix = "", duration = 1600 }) {
   const [ref, visible] = useReveal();
   const [display, setDisplay] = useState(0);
