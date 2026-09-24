@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Quote, Users, BadgeCheck, CalendarHeart, HeartHandshake, ArrowRight as ArrowRightIcon } from "lucide-react";
-import { Reveal, Spark, CountUp, FaqItem, tiltHandlers, magneticHandlers, burstConfetti, FloatingBits, Marquee, StickerBadge, CircleFeature, PolaroidWall } from "../components/ui.jsx";
+import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Quote, ArrowRight as ArrowRightIcon } from "lucide-react";
+import { Reveal, Spark, FaqItem, tiltHandlers, magneticHandlers, burstConfetti, FloatingBits, StickerBadge, CircleFeature, PolaroidWall } from "../components/ui.jsx";
 import { ShieldCheck, Home as HomeIcon, Sparkles } from "lucide-react";
-import { HERO_SLIDES, BLOCKS, GALLERY, TESTIMONIALS, IMG, REAL_PHOTOS, NDIS_STATS, PROCESS_STEPS, FAQS, RESOURCES, NSW_SUBURBS } from "../data.js";
+import { HERO_SLIDES, BLOCKS, GALLERY, TESTIMONIALS, IMG, REAL_PHOTOS, PROCESS_STEPS, FAQS, RESOURCES } from "../data.js";
 import { useSEO, SITE_URL } from "../hooks/useSEO.js";
-
-const STAT_ICONS = { Users, BadgeCheck, CalendarHeart, HeartHandshake };
 
 export default function Home() {
   const [slide, setSlide] = useState(0);
@@ -125,25 +123,6 @@ export default function Home() {
               { src: REAL_PHOTOS.grandmaTablet, rotate: -3, pin: "yellow", caption: "Sofa & screen time", alt: "A participant and family member laughing together on the couch" },
             ]}
           />
-        </div>
-      </section>
-
-      {/* Suburb ticker */}
-      <Marquee items={NSW_SUBURBS.map((s) => `${s.name} Day Program`)} speed={32} />
-
-      {/* Stats band */}
-      <section className="cdc-stats-band">
-        <div className="cdc-shell cdc-stats-grid">
-          {NDIS_STATS.map((s) => {
-            const Icon = STAT_ICONS[s.icon];
-            return (
-              <Reveal as="div" className="cdc-stat" key={s.label}>
-                <div className="cdc-stat-icon"><Icon size={22} /></div>
-                <div className="cdc-stat-value"><CountUp value={s.value} suffix={s.suffix} /></div>
-                <p className="cdc-stat-label">{s.label}</p>
-              </Reveal>
-            );
-          })}
         </div>
       </section>
 

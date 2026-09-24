@@ -224,15 +224,6 @@ export const OPEN_ROLES = [
   { title: "Day Program Facilitator", type: "Full-time" },
 ];
 
-// National NDIS scheme figures, for context on the scale of the scheme we operate within.
-// Source: NDIS Quarterly Report Q3 2025–26 (ndis.gov.au) and NDIS provider register, current as of August 2026.
-export const NDIS_STATS = [
-  { value: 782000, suffix: "+", label: "Australians supported by the NDIS nationwide", icon: "Users" },
-  { value: 277000, suffix: "+", label: "Registered and active NDIS providers across Australia", icon: "BadgeCheck" },
-  { value: 8, suffix: "yrs", label: "Core Disability Care serving Greater Sydney families", icon: "CalendarHeart" },
-  { value: 98, suffix: "%", label: "Of participants would recommend their Core support worker", icon: "HeartHandshake" },
-];
-
 export const PROCESS_STEPS = [
   { step: "01", title: "Reach out", desc: "Call, email or submit an enquiry. Tell us a little about your situation and what support looks like for you." },
   { step: "02", title: "Free plan chat", desc: "We'll walk through your NDIS plan together, at no cost, and map your funding to the right supports." },
