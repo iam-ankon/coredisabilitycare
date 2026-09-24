@@ -6,14 +6,14 @@ import { useSEO } from "../hooks/useSEO.js";
 export default function AboutUs() {
   useSEO({
     title: "About Us",
-    description: "Core Disability Care has been a registered NDIS and High Intensity Support provider in Greater Sydney since 2018. Learn about our story, values and why families choose us.",
+    description: "Core Disability Care has been a High Intensity Support provider in Greater Sydney since 2018. Learn about our story, values and why families choose us.",
     path: "/about-us",
   });
 
   return (
     <>
       <PageHero eyebrow="Our Story" title="About Core Disability Care" img={IMG.about} color="var(--sky)">
-        <p>NDIS Registered Provider and Registered High Intensity Support Provider, proudly serving Greater Sydney since 2018.</p>
+        <p>Registered High Intensity Support Provider, proudly serving Greater Sydney since 2018.</p>
       </PageHero>
 
       <section className="cdc-section">
@@ -23,7 +23,7 @@ export default function AboutUs() {
           </Reveal>
           <Reveal style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             <p style={{ color: "var(--ink-soft)", fontSize: "1.02rem" }}>
-              We are a registered NDIS provider dedicated to offering a range of
+              We are an NDIS provider dedicated to offering a range of
               services tailored to meet the diverse needs of our participants.
             </p>
             <p style={{ color: "var(--ink-soft)", fontSize: "1.02rem" }}>

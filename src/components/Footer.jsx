@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Phone, Mail, Instagram, Facebook, Youtube, ShieldCheck, BadgeCheck, ArrowRight } from "lucide-react";
+import { Phone, Mail, Instagram, Facebook, Youtube, ShieldCheck, ArrowRight } from "lucide-react";
 import { NSW_SUBURBS } from "../data.js";
 
 export default function Footer() {
@@ -13,10 +13,9 @@ export default function Footer() {
             <div style={{ marginTop: "1rem", fontFamily: "'Baloo 2', sans-serif", fontSize: "1.4rem", fontWeight: 700, color: "var(--white)" }}>
               Core Disability Care
             </div>
-            <p>NDIS Registered Provider and Registered High Intensity Support Provider. We're passionate about creating opportunities for people with disability to live the life they love.</p>
+            <p>Registered High Intensity Support Provider. We're passionate about creating opportunities for people with disability to live the life they love.</p>
             <div className="cdc-footer-badges">
               <span className="cdc-badge-pill green"><ShieldCheck size={13} /> High Intensity</span>
-              <span className="cdc-badge-pill navy" style={{ background: "rgba(255,255,255,.08)", color: "var(--white)", border: "1px solid rgba(255,255,255,.2)" }}><BadgeCheck size={13} /> NDIS Registered</span>
             </div>
           </div>
           <div>

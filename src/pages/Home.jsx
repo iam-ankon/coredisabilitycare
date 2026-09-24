@@ -13,8 +13,8 @@ export default function Home() {
   const [tIndex, setTIndex] = useState(0);
 
   useSEO({
-    title: "Registered NDIS Provider in Greater Sydney",
-    description: "Core Disability Care is a registered NDIS and High Intensity Support provider in Greater Sydney, offering SIL group homes, Day Programs, Respite (STA), Support Coordination and Homecare.",
+    title: "NDIS Disability Support in Greater Sydney",
+    description: "Core Disability Care is a High Intensity Support provider in Greater Sydney, offering SIL group homes, Day Programs, Respite (STA), Support Coordination and Homecare.",
     path: "/",
     jsonLd: {
       "@context": "https://schema.org",
@@ -32,7 +32,7 @@ export default function Home() {
         addressCountry: "AU",
       },
       areaServed: "Greater Sydney, NSW",
-      description: "Registered NDIS provider offering Supported Independent Living, Day Programs, Respite and Support Coordination across Greater Sydney.",
+      description: "NDIS provider offering Supported Independent Living, Day Programs, Respite and Support Coordination across Greater Sydney.",
     },
   });
 
@@ -272,7 +272,7 @@ export default function Home() {
             <span className="cdc-script">About Core</span>
             <h2 style={{ marginTop: ".4rem" }}>Not your typical NDIS provider</h2>
             <p style={{ color: "var(--ink-soft)", marginTop: "1.2rem", fontSize: "1.05rem" }}>
-              Core Disability Care is a registered NDIS provider dedicated to offering
+              Core Disability Care is an NDIS provider dedicated to offering
               a range of services tailored to the diverse needs of our participants.
               Honesty and integrity are at the core of everything we do.
             </p>

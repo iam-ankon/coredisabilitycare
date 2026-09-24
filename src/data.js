@@ -38,7 +38,7 @@ export const IMG = {
 };
 
 export const HERO_SLIDES = [
-  { img: REAL_PHOTOS.familyGlasses, eyebrow: "Registered NDIS Provider" },
+  { img: REAL_PHOTOS.familyGlasses, eyebrow: "Person-Centred NDIS Support" },
   { img: REAL_PHOTOS.boyBlocks, eyebrow: "Sydney's Favourite Day Programs" },
   { img: REAL_PHOTOS.grandmaTablet, eyebrow: "Respite That Feels Like a Holiday" },
 ];
@@ -103,7 +103,7 @@ export const MILESTONES = [
 ];
 
 export const WHY_CORE = [
-  { title: "Registered NDIS Provider", desc: "We are a registered NDIS provider and also a registered high intensity provider, ensuring comprehensive support tailored to your needs." },
+  { title: "High Intensity Support Provider", desc: "We are a registered high intensity support provider, ensuring comprehensive support tailored to your needs." },
   { title: "Decades of Combined Experience", desc: "Our team brings decades of combined experience, offering unparalleled expertise and knowledge in disability support." },
   { title: "Super Experienced Team", desc: "Our team consists of experienced, passionate and reliable professionals dedicated to providing exceptional support with a smile." },
   { title: "Fabulous, Reliable Staff", desc: "Our staff are committed to delivering outstanding service, ensuring every participant feels valued and supported." },
