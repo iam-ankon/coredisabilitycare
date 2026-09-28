@@ -50,6 +50,9 @@
 .cdc ul { margin: 0; padding: 0; list-style: none; }
 .cdc button { font-family: inherit; cursor: pointer; }
 .cdc img { max-width: 100%; display: block; filter: saturate(1.08) contrast(1.03); }
+/* Faces sit in the upper third of nearly every photo, so crop from there
+   instead of dead-centre — otherwise wide frames cut heads off. */
+.cdc img { object-position: 50% 22%; }
 .cdc :focus-visible { outline: 2.5px solid var(--pink); outline-offset: 2px; }
 .cdc .skip-link {
   position: absolute; left: 1rem; top: -3rem; background: var(--navy); color: var(--white);
@@ -75,6 +78,24 @@
   mask-image: radial-gradient(ellipse 90% 100% at 50% 0%, #000 0%, transparent 75%);
 }
 .cdc-section > .cdc-shell, .cdc-section > .cdc-shell-wide { position: relative; z-index: 1; }
+
+/* Announcement bar — rotating message, letters sweep out/in left to right */
+.cdc-announce {
+  background: var(--sky); color: var(--white); text-align: center;
+  height: 38px; display: flex; align-items: center; justify-content: center;
+  font-family: 'Baloo 2', 'Inter', sans-serif; font-weight: 700; font-size: .95rem; letter-spacing: .01em;
+  overflow: hidden; padding: 0 1rem;
+}
+.cdc-announce a { color: var(--white); }
+.cdc-announce a:hover .cdc-announce-text { text-decoration: underline; text-underline-offset: 3px; }
+.cdc-announce-text { display: inline-flex; white-space: nowrap; }
+.cdc-announce-text > span { display: inline-block; animation-duration: .42s; animation-fill-mode: both; animation-timing-function: cubic-bezier(.3,.7,.3,1); }
+.cdc-announce-text.in > span { animation-name: cdc-letter-in; }
+.cdc-announce-text.out > span { animation-name: cdc-letter-out; }
+@keyframes cdc-letter-in { from { opacity: 0; transform: translateY(-.35em); filter: blur(3px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes cdc-letter-out { from { opacity: 1; transform: none; filter: none; } to { opacity: 0; transform: translateY(.35em); filter: blur(3px); } }
+@media (max-width: 720px) { .cdc-announce { font-size: .85rem; height: 34px; } }
+@media (prefers-reduced-motion: reduce) { .cdc-announce-text > span { animation: none; } }
 
 /* Utility bar */
 .cdc-utility {

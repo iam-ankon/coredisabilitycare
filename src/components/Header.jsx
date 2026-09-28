@@ -1,7 +1,57 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X, Phone, Instagram, Facebook, Youtube, ShieldCheck, Award, ChevronRight } from "lucide-react";
-import { NSW_SUBURBS } from "../data.js";
+import { Menu, X, Phone, Instagram, Facebook, Youtube, ChevronRight } from "lucide-react";
+
+const DAY_PROGRAM_REGIONS = ["Greater Sydney", "New South Wales"];
+
+// Rotating messages in the thin announcement bar above the header.
+const ANNOUNCEMENTS = [
+  { text: "Servicing all areas of Greater Sydney" },
+  { text: "Refer a Participant", to: "/contact" },
+  { text: "Call us on 1300 022 787", href: "tel:1300022787" },
+];
+
+const HOLD_MS = 3200;    // how long a message sits fully visible
+const LETTER_MS = 28;    // stagger between letters
+const LETTER_ANIM_MS = 420;
+
+// Each message dissolves letter by letter (left to right), then the next one
+// writes itself in the same way.
+function AnnouncementBar() {
+  const [index, setIndex] = useState(0);
+  const [phase, setPhase] = useState("in");
+
+  useEffect(() => {
+    const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    const len = ANNOUNCEMENTS[index].text.length;
+    const sweep = reduced ? 0 : len * LETTER_MS + LETTER_ANIM_MS;
+    const id = phase === "in"
+      ? setTimeout(() => setPhase("out"), sweep + HOLD_MS)
+      : setTimeout(() => { setIndex((i) => (i + 1) % ANNOUNCEMENTS.length); setPhase("in"); }, sweep);
+    return () => clearTimeout(id);
+  }, [index, phase]);
+
+  const a = ANNOUNCEMENTS[index];
+  const letters = (
+    <span className={`cdc-announce-text ${phase}`} key={`${index}-${phase}`} aria-hidden="true">
+      {[...a.text].map((ch, i) => (
+        <span key={i} style={{ animationDelay: `${i * LETTER_MS}ms` }}>{ch === " " ? "\u00A0" : ch}</span>
+      ))}
+    </span>
+  );
+
+  return (
+    <div className="cdc-announce" role="region" aria-label="Announcements">
+      {a.to ? (
+        <Link to={a.to} aria-label={a.text}>{letters}</Link>
+      ) : a.href ? (
+        <a href={a.href} aria-label={a.text}>{letters}</a>
+      ) : (
+        <span aria-label={a.text} role="text">{letters}</span>
+      )}
+    </div>
+  );
+}
 
 const NAV_LINKS = [
   { label: "About Us", to: "/about-us" },
@@ -26,17 +76,14 @@ export default function Header() {
 
   return (
     <>
+      <AnnouncementBar />
+
       {/* Utility bar */}
       <div className={`cdc-utility${scrolled ? " scrolled" : ""}`}>
         <div className="cdc-shell-wide cdc-utility-inner">
           <Link to="/" className="cdc-brand" aria-label="Core Disability Care — home">
             <img src="/brand/logo-full.png" alt="Core Disability Care" className="cdc-brand-logo" />
           </Link>
-
-          <div className="cdc-badges">
-            <span className="cdc-badge-pill pink"><ShieldCheck size={13} /> High Intensity Registered</span>
-            <span className="cdc-badge-pill dark"><Award size={13} /> Best Workplace 2026</span>
-          </div>
 
           <div className="cdc-utility-actions">
             <a href="tel:1300022787" className="cdc-call">
@@ -67,9 +114,9 @@ export default function Header() {
                 </NavLink>
                 {l.dropdown && dayOpen && (
                   <div className="cdc-dropdown">
-                    {NSW_SUBURBS.map((s) => (
-                      <Link to={`/day-programs/${s.slug}`} key={s.slug} onClick={() => setDayOpen(false)}>
-                        {s.name} Day Program
+                    {DAY_PROGRAM_REGIONS.map((r) => (
+                      <Link to="/day-programs" key={r} onClick={() => setDayOpen(false)}>
+                        {r}
                       </Link>
                     ))}
                   </div>

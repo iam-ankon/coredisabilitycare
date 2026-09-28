@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Quote, ArrowRight as ArrowRightIcon } from "lucide-react";
 import { Reveal, Spark, FaqItem, tiltHandlers, magneticHandlers, burstConfetti, FloatingBits, StickerBadge, CircleFeature, PolaroidWall, InfoTabs } from "../components/ui.jsx";
-import { ShieldCheck, Home as HomeIcon, Sparkles } from "lucide-react";
+import { Home as HomeIcon, Sparkles } from "lucide-react";
 import { HERO_SLIDES, BLOCKS, GALLERY, TESTIMONIALS, IMG, REAL_PHOTOS, PROCESS_STEPS, FAQS, RESOURCES } from "../data.js";
 import { useSEO, SITE_URL } from "../hooks/useSEO.js";
 
@@ -50,8 +50,8 @@ export default function Home() {
   const [tIndex, setTIndex] = useState(0);
 
   useSEO({
-    title: "NDIS Disability Support in Greater Sydney",
-    description: "Core Disability Care is a High Intensity Support provider in Greater Sydney, offering SIL group homes, Day Programs, Respite (STA), Support Coordination and Homecare.",
+    title: "Core Disability Care | NDIS Provider in Greater Sydney",
+    description: "Core Disability Care is a disability support provider in Greater Sydney, offering SIL group homes, Day Programs, Respite (STA), Support Coordination and Homecare.",
     path: "/",
     jsonLd: {
       "@context": "https://schema.org",
@@ -141,7 +141,6 @@ export default function Home() {
       {/* Circle feature badges */}
       <div className="cdc-shell">
         <Reveal className="cdc-circle-row">
-          <CircleFeature color="pink" icon={ShieldCheck} label="Registered High Intensity Provider" />
           <CircleFeature color="sky" icon={HomeIcon} label="Fabulous SIL and STA Homes" />
           <CircleFeature color="purple" icon={Sparkles} label="Exciting Variety of Day Programs" />
         </Reveal>

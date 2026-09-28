@@ -6,14 +6,14 @@ import { useSEO } from "../hooks/useSEO.js";
 export default function AboutUs() {
   useSEO({
     title: "About Us",
-    description: "Core Disability Care has been a High Intensity Support provider in Greater Sydney since 2018. Learn about our story, values and why families choose us.",
+    description: "Core Disability Care has been supporting people with disability in Greater Sydney since 2018. Learn about our story, values and why families choose us.",
     path: "/about-us",
   });
 
   return (
     <>
       <PageHero eyebrow="Our Story" title="About Core Disability Care" img={IMG.about} color="var(--sky)">
-        <p>Registered High Intensity Support Provider, proudly serving Greater Sydney since 2018.</p>
+        <p>Proudly serving Greater Sydney since 2018.</p>
       </PageHero>
 
       <section className="cdc-section">

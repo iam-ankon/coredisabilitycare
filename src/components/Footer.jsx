@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Phone, Mail, Instagram, Facebook, Youtube, ShieldCheck, ArrowRight } from "lucide-react";
-import { NSW_SUBURBS } from "../data.js";
+import { Phone, Mail, Instagram, Facebook, Youtube, ArrowRight } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -13,10 +12,7 @@ export default function Footer() {
             <div style={{ marginTop: "1rem", fontFamily: "'Baloo 2', sans-serif", fontSize: "1.4rem", fontWeight: 700, color: "var(--white)" }}>
               Core Disability Care
             </div>
-            <p>Registered High Intensity Support Provider. We're passionate about creating opportunities for people with disability to live the life they love.</p>
-            <div className="cdc-footer-badges">
-              <span className="cdc-badge-pill green"><ShieldCheck size={13} /> High Intensity</span>
-            </div>
+            <p>We're passionate about creating opportunities for people with disability to live the life they love.</p>
           </div>
           <div>
             <h4>Types of Care</h4>
@@ -49,11 +45,10 @@ export default function Footer() {
 
         <div className="cdc-footer-locations">
           <div>
-            <h4>NSW — Day Programs</h4>
+            <h4>Day Programs</h4>
             <div className="cdc-loc-cols">
-              {NSW_SUBURBS.map((s) => (
-                <Link to={`/day-programs/${s.slug}`} key={s.slug}>{s.name} <ArrowRight size={13} /></Link>
-              ))}
+              <Link to="/day-programs">Greater Sydney <ArrowRight size={13} /></Link>
+              <Link to="/day-programs">New South Wales <ArrowRight size={13} /></Link>
             </div>
           </div>
           <div>
