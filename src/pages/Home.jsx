@@ -156,11 +156,38 @@ export default function Home() {
           </Reveal>
           <PolaroidWall
             photos={[
-              { src: REAL_PHOTOS.familyGlasses, rotate: -5, pin: "pink", caption: "Bean bag catch-up ☺", alt: "A support worker and a participant sharing a laugh on a bean bag" },
-              { src: REAL_PHOTOS.boyBlocks, rotate: 4, pin: "sky", caption: "Building & sorting time", alt: "A participant playing with colourful blocks at a Day Program" },
-              { src: REAL_PHOTOS.grandmaTablet, rotate: -3, pin: "yellow", caption: "Sofa & screen time", alt: "A participant and family member laughing together on the couch" },
+              { src: REAL_PHOTOS.gardenMentor, rotate: -5, pin: "pink", caption: "Hands-on skill building", alt: "A support worker and a participant tending plants together at a garden centre" },
+              { src: REAL_PHOTOS.cafeFriends, rotate: 4, pin: "sky", caption: "Work-ready and smiling", alt: "Two colleagues laughing together behind a cafe counter" },
+              { src: REAL_PHOTOS.siblingsLaugh, rotate: -3, pin: "yellow", caption: "Friendship and fun", alt: "Two participants laughing together" },
             ]}
           />
+        </div>
+      </section>
+
+      {/* Video moments — short clips from our Day Programs */}
+      <section className="cdc-section" style={{ paddingTop: 0 }}>
+        <div className="cdc-shell">
+          <Reveal className="cdc-section-head">
+            <span className="cdc-script">See it for yourself</span>
+            <h2>Moments worth watching</h2>
+            <p>Short clips from our community and Day Program sessions.</p>
+          </Reveal>
+          <Reveal className="cdc-video-grid">
+            <video
+              className="cdc-video-card"
+              src="/videos/day-programs-playground.mp4"
+              poster="/photos/video-playground-poster.jpg"
+              autoPlay loop muted playsInline controls
+              aria-label="A participant smiling and waving in a wheelchair at a playground"
+            />
+            <video
+              className="cdc-video-card"
+              src="/videos/day-programs-art.mp4"
+              poster="/photos/video-art-poster.jpg"
+              autoPlay loop muted playsInline controls
+              aria-label="A participant smiling during an art activity"
+            />
+          </Reveal>
         </div>
       </section>
 

@@ -1,46 +1,47 @@
 // Shared content and image references used across pages.
-// Photos are free-license Unsplash images (Unsplash License —
-// free for commercial use, no attribution required), hotlinked
-// directly. Swap these for real photography whenever you have it.
+// Real licensed photography, stored locally in /public/photos.
 
 export const REAL_PHOTOS = {
-  familyGlasses: "/photos/family-glasses.jpg",
-  boyBlocks: "/photos/boy-blocks.jpg",
-  grandmaTablet: "/photos/grandma-tablet.jpg",
+  seniorWalk: "/photos/senior-walk.jpg",
+  gardenMentor: "/photos/garden-mentor.jpg",
+  cafeFriends: "/photos/cafe-friends.jpg",
+  siblingsLaugh: "/photos/siblings-laugh.jpg",
+  wheelchairCarer: "/photos/wheelchair-carer.jpg",
+  playgroundBoy: "/photos/playground-boy.jpg",
 };
 
 export const IMG = {
-  hero1: "https://images.unsplash.com/photo-1732194439368-4655fd0ea955?auto=format&fit=crop&w=1400&q=80",
-  hero2: "https://images.unsplash.com/photo-1723433892471-62f113c8c9a0?auto=format&fit=crop&w=1400&q=80",
-  hero3: "https://images.unsplash.com/photo-1595687973201-0095ff7a302e?auto=format&fit=crop&w=1400&q=80",
-  sil: "https://images.unsplash.com/photo-1732194438396-394d2b7c2436?auto=format&fit=crop&w=800&q=80",
-  respite: "https://images.unsplash.com/photo-1595687973201-0095ff7a302e?auto=format&fit=crop&w=800&q=80",
-  dayprograms: "https://images.unsplash.com/photo-1762955911431-4c44c7c3f408?auto=format&fit=crop&w=800&q=80",
-  home: "https://images.unsplash.com/photo-1732194438396-394d2b7c2436?auto=format&fit=crop&w=800&q=80",
-  coordination: "https://images.unsplash.com/photo-1758873268663-5a362616b5a7?auto=format&fit=crop&w=800&q=80",
-  social: "https://images.unsplash.com/photo-1732194439368-4655fd0ea955?auto=format&fit=crop&w=800&q=80",
-  blockDay: "https://images.unsplash.com/photo-1762955911431-4c44c7c3f408?auto=format&fit=crop&w=600&q=80",
-  blockSil: "https://images.unsplash.com/photo-1732194438396-394d2b7c2436?auto=format&fit=crop&w=600&q=80",
-  blockRespite: "https://images.unsplash.com/photo-1595687973201-0095ff7a302e?auto=format&fit=crop&w=600&q=80",
-  blockCoord: "https://images.unsplash.com/photo-1758873268663-5a362616b5a7?auto=format&fit=crop&w=600&q=80",
-  g1: REAL_PHOTOS.familyGlasses,
-  g2: REAL_PHOTOS.boyBlocks,
-  g3: REAL_PHOTOS.grandmaTablet,
-  g4: "https://images.unsplash.com/photo-1762955911431-4c44c7c3f408?auto=format&fit=crop&w=500&q=80",
-  about: "https://images.unsplash.com/photo-1758873268663-5a362616b5a7?auto=format&fit=crop&w=1200&q=80",
-  aboutStory: "https://images.unsplash.com/photo-1570793005299-c091be91bbad?auto=format&fit=crop&w=1200&q=80",
-  silRoom: "https://images.unsplash.com/photo-1732194438396-394d2b7c2436?auto=format&fit=crop&w=900&q=80",
-  silLiving: "https://images.unsplash.com/photo-1709880754472-be89c13abc52?auto=format&fit=crop&w=900&q=80",
-  respiteBeach: "https://images.unsplash.com/photo-1595687973201-0095ff7a302e?auto=format&fit=crop&w=1200&q=80",
-  fishing: "https://images.unsplash.com/photo-1570793005299-c091be91bbad?auto=format&fit=crop&w=900&q=80",
-  sailing: "https://images.unsplash.com/photo-1723433892471-62f113c8c9a0?auto=format&fit=crop&w=900&q=80",
-  careers: "https://images.unsplash.com/photo-1758873268663-5a362616b5a7?auto=format&fit=crop&w=1200&q=80",
+  hero1: REAL_PHOTOS.playgroundBoy,
+  hero2: REAL_PHOTOS.wheelchairCarer,
+  hero3: REAL_PHOTOS.seniorWalk,
+  sil: REAL_PHOTOS.wheelchairCarer,
+  respite: REAL_PHOTOS.seniorWalk,
+  dayprograms: REAL_PHOTOS.gardenMentor,
+  home: REAL_PHOTOS.gardenMentor,
+  coordination: REAL_PHOTOS.wheelchairCarer,
+  social: REAL_PHOTOS.cafeFriends,
+  blockDay: REAL_PHOTOS.playgroundBoy,
+  blockSil: REAL_PHOTOS.wheelchairCarer,
+  blockRespite: REAL_PHOTOS.seniorWalk,
+  blockCoord: REAL_PHOTOS.gardenMentor,
+  g1: REAL_PHOTOS.cafeFriends,
+  g2: REAL_PHOTOS.gardenMentor,
+  g3: REAL_PHOTOS.siblingsLaugh,
+  g4: REAL_PHOTOS.playgroundBoy,
+  about: REAL_PHOTOS.gardenMentor,
+  aboutStory: REAL_PHOTOS.wheelchairCarer,
+  silRoom: REAL_PHOTOS.wheelchairCarer,
+  silLiving: REAL_PHOTOS.cafeFriends,
+  respiteBeach: REAL_PHOTOS.seniorWalk,
+  fishing: REAL_PHOTOS.wheelchairCarer,
+  sailing: REAL_PHOTOS.playgroundBoy,
+  careers: REAL_PHOTOS.cafeFriends,
 };
 
 export const HERO_SLIDES = [
-  { img: REAL_PHOTOS.familyGlasses, eyebrow: "Person-Centred NDIS Support" },
-  { img: REAL_PHOTOS.boyBlocks, eyebrow: "Sydney's Favourite Day Programs" },
-  { img: REAL_PHOTOS.grandmaTablet, eyebrow: "Respite That Feels Like a Holiday" },
+  { img: REAL_PHOTOS.playgroundBoy, eyebrow: "Sydney's Favourite Day Programs" },
+  { img: REAL_PHOTOS.wheelchairCarer, eyebrow: "Person-Centred NDIS Support" },
+  { img: REAL_PHOTOS.seniorWalk, eyebrow: "Respite That Feels Like a Holiday" },
 ];
 
 export const SERVICES = [
