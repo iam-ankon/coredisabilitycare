@@ -82,7 +82,8 @@ export default function Header() {
       <div className={`cdc-utility${scrolled ? " scrolled" : ""}`}>
         <div className="cdc-shell-wide cdc-utility-inner">
           <Link to="/" className="cdc-brand" aria-label="Core Disability Care — home">
-            <img src="/brand/logo-full.png" alt="Core Disability Care" className="cdc-brand-logo" />
+            <img src="/brand/logo-icon.png" alt="" className="cdc-brand-icon" />
+            <strong>Core<span> Disability Care</span></strong>
           </Link>
 
           <div className="cdc-utility-actions">
