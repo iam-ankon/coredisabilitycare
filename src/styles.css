@@ -114,10 +114,10 @@
 .cdc-brand { display: flex; align-items: center; gap: .6rem; }
 .cdc-brand strong { font-family: 'Baloo 2', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--sky); }
 .cdc-brand strong span { color: var(--navy); }
-.cdc-brand-logo { height: 44px; width: auto; }
+.cdc-brand-logo { height: 60px; width: auto; }
 .cdc-brand-icon { height: 30px; width: auto; }
 .cdc-footer-logo { height: 58px; width: auto; }
-@media (max-width: 720px) { .cdc-brand-logo { height: 34px; } }
+@media (max-width: 720px) { .cdc-brand-logo { height: 44px; } }
 .cdc-badges { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; transition: opacity .25s ease, width .25s ease; }
 .cdc-badge-pill {
   display: inline-flex; align-items: center; gap: .35rem; font-size: .7rem; font-weight: 700;
@@ -127,12 +127,7 @@
 .cdc-badge-pill.navy { background: #EAF0FB; color: var(--navy); border: 1px solid #C6D5F2; }
 .cdc-badge-pill.pink { background: #FCE8FB; color: var(--pink); border: 1px solid #F0C2EE; }
 .cdc-badge-pill.dark { background: var(--grad-fun); color: var(--white); }
-.cdc-utility-actions { display: flex; align-items: center; gap: 1rem; }
-.cdc-call { display: flex; align-items: center; gap: .55rem; }
-.cdc-call .ic { width: 34px; height: 34px; border-radius: 50%; background: var(--sky); display: flex; align-items: center; justify-content: center; color: var(--white); flex: none; }
-.cdc-call div { display: flex; flex-direction: column; line-height: 1.15; }
-.cdc-call span { font-size: .68rem; color: var(--ink-soft); }
-.cdc-call strong { font-size: .92rem; color: var(--navy); }
+.cdc-utility-actions { display: flex; align-items: center; gap: .7rem; }
 
 .cdc-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
@@ -146,6 +141,8 @@
 .cdc-btn-pink:hover { background-position: right center; box-shadow: 0 16px 32px -12px rgba(154,30,151,.7); }
 .cdc-btn-navy { background: linear-gradient(120deg, var(--navy), var(--navy-2) 55%, #4A2E7A); background-size: 200% auto; color: var(--white); box-shadow: 0 10px 24px -12px rgba(22,33,62,.6); }
 .cdc-btn-navy:hover { background-position: right center; box-shadow: 0 16px 32px -12px rgba(22,33,62,.7); }
+.cdc-btn-sky { background: linear-gradient(120deg, var(--sky), var(--sky-dark) 60%, var(--sky)); background-size: 200% auto; color: var(--white); box-shadow: 0 10px 24px -12px rgba(63,79,224,.55); }
+.cdc-btn-sky:hover { background-position: right center; box-shadow: 0 16px 32px -12px rgba(63,79,224,.65); }
 .cdc-btn-white { background: var(--white); color: var(--pink); }
 .cdc-btn-white:hover { box-shadow: 0 14px 26px -14px rgba(0,0,0,.25); }
 .cdc-btn-ghost { background: var(--graybg); color: var(--navy); }
@@ -183,6 +180,9 @@
 .cdc-navbar-links { display: flex; align-items: center; gap: .9rem; font-size: .82rem; font-weight: 600; color: rgba(255,255,255,.85); }
 .cdc-navbar-links a:hover { color: var(--pink); }
 .cdc-navbar-sep { width: 1px; height: 14px; background: rgba(255,255,255,.25); }
+.cdc-google-rating { display: flex; align-items: center; gap: .4rem; font-size: .8rem; color: rgba(255,255,255,.85); white-space: nowrap; }
+.cdc-google-rating strong { color: var(--white); }
+.cdc-google-rating-stars { display: flex; gap: 1px; color: var(--yellow); }
 
 .cdc-mobile-backdrop {
   display: none; position: fixed; inset: 0; background: rgba(10,14,28,.55); backdrop-filter: blur(3px);
@@ -563,7 +563,7 @@
 @media (max-width: 720px) {
   .cdc-nav, .cdc-navbar-right { display: none; }
   .cdc-menu-btn { display: flex; }
-  .cdc-utility-actions .cdc-call { display: none; }
+  .cdc-utility-actions .cdc-phone-pill, .cdc-utility-actions .cdc-referral-pill { display: none; }
   .cdc-services-grid, .cdc-blocks, .cdc-gallery-grid, .cdc-feature-grid { grid-template-columns: 1fr; }
   .cdc-footer-top { grid-template-columns: 1fr; }
   .cdc-loc-cols { grid-template-columns: 1fr 1fr; }

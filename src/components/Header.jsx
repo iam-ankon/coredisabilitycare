@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X, Phone, Instagram, Facebook, Youtube, ChevronRight } from "lucide-react";
+import { Menu, X, Phone, Instagram, Facebook, Youtube, ChevronRight, Star } from "lucide-react";
 
 const DAY_PROGRAM_REGIONS = ["Greater Sydney", "New South Wales"];
 
@@ -86,11 +86,11 @@ export default function Header() {
           </Link>
 
           <div className="cdc-utility-actions">
-            <a href="tel:1300022787" className="cdc-call">
-              <span className="ic"><Phone size={15} /></span>
-              <div><span>Call Us on</span><strong>1300 022 787</strong></div>
+            <a href="tel:1300022787" className="cdc-btn cdc-btn-sky cdc-btn-sm cdc-phone-pill">
+              <Phone size={15} /> 1300 022 787
             </a>
-            <Link to="/contact" className="cdc-btn cdc-btn-pink cdc-btn-sm">Contact Us</Link>
+            <Link to="/contact" className="cdc-btn cdc-btn-sky cdc-btn-sm cdc-referral-pill">Referral</Link>
+            <Link to="/contact" className="cdc-btn cdc-btn-gradient cdc-btn-sm">Enquire Now</Link>
             <button className="cdc-menu-btn" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen((v) => !v)}>
               {menuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -125,6 +125,15 @@ export default function Header() {
             ))}
           </nav>
           <div className="cdc-navbar-right">
+            <div className="cdc-google-rating" aria-label="Rated 5.0 stars on Google">
+              <span className="cdc-google-rating-stars">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} size={12} fill="currentColor" strokeWidth={0} />
+                ))}
+              </span>
+              <strong>5.0</strong> Google Rating
+            </div>
+            <div className="cdc-navbar-sep" />
             <div className="cdc-social">
               <a href="#" aria-label="Instagram"><Instagram size={13} /></a>
               <a href="#" aria-label="Facebook"><Facebook size={13} /></a>
