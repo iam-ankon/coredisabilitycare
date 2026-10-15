@@ -4,11 +4,22 @@ import { Menu, X, Phone, Instagram, Facebook, Youtube, ChevronRight, Star } from
 
 const DAY_PROGRAM_REGIONS = ["Greater Sydney", "New South Wales"];
 
+function GoogleLogo({ size = 14 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden="true">
+      <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z" />
+      <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z" />
+      <path fill="#FBBC05" d="M11.69 28.18A13.98 13.98 0 0 1 10.92 24c0-1.45.25-2.86.77-4.18v-5.7H4.34A21.99 21.99 0 0 0 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z" />
+      <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z" />
+    </svg>
+  );
+}
+
 // Rotating messages in the thin announcement bar above the header.
 const ANNOUNCEMENTS = [
   { text: "Servicing all areas of Greater Sydney" },
-  { text: "Refer a Participant", to: "/contact" },
-  { text: "Call us on 1300 022 787", href: "tel:1300022787" },
+  { text: "Refer a Participant", to: "/refer-a-participant" },
+  { text: "Call us on 1800 95 6474", href: "tel:1800956474" },
 ];
 
 const HOLD_MS = 3200;    // how long a message sits fully visible
@@ -54,6 +65,7 @@ function AnnouncementBar() {
 }
 
 const NAV_LINKS = [
+  { label: "Home", to: "/" },
   { label: "About Us", to: "/about-us" },
   { label: "Day Programs", to: "/day-programs", dropdown: true },
   { label: "Group Home SIL", to: "/group-home-sil" },
@@ -81,16 +93,26 @@ export default function Header() {
       {/* Utility bar */}
       <div className={`cdc-utility${scrolled ? " scrolled" : ""}`}>
         <div className="cdc-shell-wide cdc-utility-inner">
-          <Link to="/" className="cdc-brand" aria-label="Core Disability Care — home">
+          <Link to="/" className="cdc-brand" aria-label="Core Support Care — home">
             <img src="/brand/logo-icon.png" alt="" className="cdc-brand-icon" />
-            <strong>Core<span> Disability Care</span></strong>
+            <strong>Core<span> Support Care</span></strong>
           </Link>
 
+          <div className="cdc-google-rating cdc-google-rating-center" aria-label="Rated 5.0 stars on Google">
+            <GoogleLogo size={16} />
+            <span className="cdc-google-rating-stars">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} size={12} fill="currentColor" strokeWidth={0} />
+              ))}
+            </span>
+            <strong>5.0</strong> Google Rating
+          </div>
+
           <div className="cdc-utility-actions">
-            <a href="tel:1300022787" className="cdc-btn cdc-btn-sky cdc-btn-sm cdc-phone-pill">
-              <Phone size={15} /> 1300 022 787
+            <a href="tel:1800956474" className="cdc-btn cdc-btn-sky cdc-btn-sm cdc-phone-pill">
+              <Phone size={15} /> 1800 95 6474
             </a>
-            <Link to="/contact" className="cdc-btn cdc-btn-sky cdc-btn-sm cdc-referral-pill">Referral</Link>
+            <Link to="/refer-a-participant" className="cdc-btn cdc-btn-sky cdc-btn-sm cdc-referral-pill">Referral</Link>
             <Link to="/contact" className="cdc-btn cdc-btn-gradient cdc-btn-sm">Enquire Now</Link>
             <button className="cdc-menu-btn" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen((v) => !v)}>
               {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -110,7 +132,7 @@ export default function Header() {
                 onMouseEnter={() => l.dropdown && setDayOpen(true)}
                 onMouseLeave={() => l.dropdown && setDayOpen(false)}
               >
-                <NavLink to={l.to} className={({ isActive }) => `cdc-nav-link${isActive ? " active" : ""}`}>
+                <NavLink to={l.to} end={l.to === "/"} className={({ isActive }) => `cdc-nav-link${isActive ? " active" : ""}`}>
                   {l.label}
                 </NavLink>
                 {l.dropdown && dayOpen && (
@@ -126,15 +148,6 @@ export default function Header() {
             ))}
           </nav>
           <div className="cdc-navbar-right">
-            <div className="cdc-google-rating" aria-label="Rated 5.0 stars on Google">
-              <span className="cdc-google-rating-stars">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={12} fill="currentColor" strokeWidth={0} />
-                ))}
-              </span>
-              <strong>5.0</strong> Google Rating
-            </div>
-            <div className="cdc-navbar-sep" />
             <div className="cdc-social">
               <a href="#" aria-label="Instagram"><Instagram size={13} /></a>
               <a href="#" aria-label="Facebook"><Facebook size={13} /></a>
@@ -152,7 +165,7 @@ export default function Header() {
           <div className="cdc-mobile-nav-head">
             <span className="cdc-brand" style={{ pointerEvents: "none" }}>
               <img src="/brand/logo-icon.png" alt="" className="cdc-brand-icon" />
-              <strong style={{ color: "var(--white)" }}>Core Disability Care</strong>
+              <strong style={{ color: "var(--white)" }}>Core Support Care</strong>
             </span>
             <button className="cdc-menu-btn" aria-label="Close menu" onClick={() => setMenuOpen(false)}><X size={18} /></button>
           </div>

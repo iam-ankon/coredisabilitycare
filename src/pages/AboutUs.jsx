@@ -6,20 +6,20 @@ import { useSEO } from "../hooks/useSEO.js";
 export default function AboutUs() {
   useSEO({
     title: "About Us",
-    description: "Core Disability Care has been supporting people with disability in Greater Sydney since 2018. Learn about our story, values and why families choose us.",
+    description: "Core Support Care has been supporting people with disability in Greater Sydney since 2018. Learn about our story, values and why families choose us.",
     path: "/about-us",
   });
 
   return (
     <>
-      <PageHero eyebrow="Our Story" title="About Core Disability Care" img={IMG.about} color="var(--sky)">
+      <PageHero eyebrow="Our Story" title="About Core Support Care" img={IMG.about} color="var(--sky)">
         <p>Proudly serving Greater Sydney since 2018.</p>
       </PageHero>
 
       <section className="cdc-section">
         <div className="cdc-shell" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "center" }}>
           <Reveal>
-            <img src={IMG.aboutStory} alt="Core Disability Care participants and staff together" style={{ borderRadius: "1.3rem", width: "100%", height: 380, objectFit: "cover" }} />
+            <img src={IMG.aboutStory} alt="Core Support Care participants and staff together" style={{ borderRadius: "1.3rem", width: "100%", height: 380, objectFit: "cover" }} />
           </Reveal>
           <Reveal style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             <p style={{ color: "var(--ink-soft)", fontSize: "1.02rem" }}>
@@ -27,7 +27,7 @@ export default function AboutUs() {
               services tailored to meet the diverse needs of our participants.
             </p>
             <p style={{ color: "var(--ink-soft)", fontSize: "1.02rem" }}>
-              Honesty and integrity are at the core of Core Disability Care's
+              Honesty and integrity are at the core of Core Support Care's
               operations and values. We are committed to transparency and building
               trust with every participant and their families.
             </p>

@@ -37,7 +37,7 @@ export default function Respite() {
             ))}
           </Reveal>
           <Reveal>
-            <img src={IMG.respiteBeach} alt="A Core Disability Care participant enjoying respite by the water" style={{ borderRadius: "1.3rem", width: "100%", height: 460, objectFit: "cover" }} />
+            <img src={IMG.respiteWalk} alt="A carer and participant enjoying a relaxed walk together" style={{ borderRadius: "1.3rem", width: "100%", height: 460, objectFit: "cover" }} />
           </Reveal>
         </div>
       </section>
@@ -45,7 +45,7 @@ export default function Respite() {
       <section className="cdc-section" style={{ background: "var(--graybg)" }}>
         <div className="cdc-shell">
           <Reveal className="cdc-cta-card">
-            <p>Your respite starts here with Core Disability Care!</p>
+            <p>Your respite starts here with Core Support Care!</p>
             <Link to="/contact" className="cdc-btn cdc-btn-pink">Contact Us <ArrowUpRight size={16} /></Link>
           </Reveal>
         </div>

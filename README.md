@@ -1,6 +1,6 @@
-# Core Supports Care — Website
+# Core Support Care — Website
 
-A real **multi-page** React + Vite site for Core Disability Care Pty Ltd, built to
+A real **multi-page** React + Vite site for Core Support Care Pty Ltd, built to
 match the structure of a reference NDIS provider site: two-tier header with a
 Day Programs mega-menu, a rotating photo hero, a colourful four-block service
 strip, and a suburb-by-suburb Day Program network — using real routes

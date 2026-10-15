@@ -32,10 +32,10 @@ export default function DayProgramDetail() {
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "MedicalBusiness",
-      name: `Core Disability Care — ${suburb.name} Day Program`,
+      name: `Core Support Care — ${suburb.name} Day Program`,
       url: `${SITE_URL}/day-programs/${suburb.slug}`,
       areaServed: { "@type": "Place", name: `${suburb.name} NSW ${suburb.postcode}` },
-      telephone: "+61-1300-022-787",
+      telephone: "+61-1800-95-6474",
     },
   });
 

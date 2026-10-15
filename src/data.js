@@ -8,40 +8,48 @@ export const REAL_PHOTOS = {
   siblingsLaugh: "/photos/siblings-laugh.jpg",
   wheelchairCarer: "/photos/wheelchair-carer.jpg",
   playgroundBoy: "/photos/playground-boy.jpg",
+  grandmotherGranddaughter: "/photos/grandmother-granddaughter.jpg",
 };
+
+// ponytail: placeholder.jpg stands in everywhere a real photo isn't available yet —
+// swap each one for a real shot as it comes in, then drop the placeholder.
+const PLACEHOLDER = "/photos/placeholder.svg";
 
 export const IMG = {
   hero1: REAL_PHOTOS.playgroundBoy,
   hero2: REAL_PHOTOS.wheelchairCarer,
   hero3: REAL_PHOTOS.seniorWalk,
-  sil: REAL_PHOTOS.wheelchairCarer,
-  respite: REAL_PHOTOS.seniorWalk,
+  sil: PLACEHOLDER,
+  respite: PLACEHOLDER,
   dayprograms: REAL_PHOTOS.gardenMentor,
-  home: REAL_PHOTOS.gardenMentor,
-  coordination: REAL_PHOTOS.wheelchairCarer,
+  home: PLACEHOLDER,
+  coordination: PLACEHOLDER,
   social: REAL_PHOTOS.cafeFriends,
-  blockDay: REAL_PHOTOS.playgroundBoy,
-  blockSil: REAL_PHOTOS.wheelchairCarer,
-  blockRespite: REAL_PHOTOS.seniorWalk,
-  blockCoord: REAL_PHOTOS.gardenMentor,
-  g1: REAL_PHOTOS.cafeFriends,
-  g2: REAL_PHOTOS.gardenMentor,
+  blockDay: PLACEHOLDER,
+  blockSil: PLACEHOLDER,
+  blockRespite: PLACEHOLDER,
+  blockCoord: PLACEHOLDER,
+  g1: PLACEHOLDER,
+  g2: PLACEHOLDER,
   g3: REAL_PHOTOS.siblingsLaugh,
-  g4: REAL_PHOTOS.playgroundBoy,
-  about: REAL_PHOTOS.gardenMentor,
-  aboutStory: REAL_PHOTOS.wheelchairCarer,
-  silRoom: REAL_PHOTOS.wheelchairCarer,
-  silLiving: REAL_PHOTOS.cafeFriends,
-  respiteBeach: REAL_PHOTOS.seniorWalk,
-  fishing: REAL_PHOTOS.wheelchairCarer,
-  sailing: REAL_PHOTOS.playgroundBoy,
-  careers: REAL_PHOTOS.cafeFriends,
+  g4: PLACEHOLDER,
+  about: PLACEHOLDER,
+  aboutStory: PLACEHOLDER,
+  ourWork: PLACEHOLDER,
+  ourTeam: PLACEHOLDER,
+  ourMission: PLACEHOLDER,
+  silRoom: PLACEHOLDER,
+  silLiving: PLACEHOLDER,
+  respiteBeach: REAL_PHOTOS.grandmotherGranddaughter,
+  respiteWalk: PLACEHOLDER,
+  fishing: PLACEHOLDER,
+  sailing: PLACEHOLDER,
+  careers: PLACEHOLDER,
 };
 
 export const HERO_SLIDES = [
-  { img: REAL_PHOTOS.playgroundBoy, eyebrow: "Sydney's Favourite Day Programs" },
-  { img: REAL_PHOTOS.wheelchairCarer, eyebrow: "Person-Centred NDIS Support" },
-  { img: REAL_PHOTOS.seniorWalk, eyebrow: "Respite That Feels Like a Holiday" },
+  { video: "/videos/day-programs-playground.mp4", poster: "/photos/video-playground-poster.jpg", eyebrow: "Sydney's Favourite Day Programs" },
+  { video: "/videos/day-programs-art.mp4", poster: "/photos/video-art-poster.jpg", eyebrow: "Person-Centred NDIS Support" },
 ];
 
 export const SERVICES = [
@@ -95,7 +103,7 @@ export const NSW_SUBURBS = [
 ];
 
 export const MILESTONES = [
-  { year: "2018", title: "Doors open in Bankstown", desc: "Core Disability Care launches with a single mission: honest, person-centred NDIS support for Greater Sydney." },
+  { year: "2018", title: "Doors open in Bankstown", desc: "Core Support Care launches with a single mission: honest, person-centred NDIS support for Greater Sydney." },
   { year: "2020", title: "Day Programs go weekly", desc: "Demand for community access grows fast — regular Day Programs launch across Bankstown and Liverpool." },
   { year: "2021", title: "First SIL homes open", desc: "Our first Supported Independent Living homes welcome participants into 24/7 tailored care." },
   { year: "2025", title: "10 suburbs, one team", desc: "Day Programs, SIL, Respite and Homecare now run across ten Greater Sydney suburbs." },
@@ -107,7 +115,7 @@ export const WHY_CORE = [
   { title: "Super Experienced Team", desc: "Our team consists of experienced, passionate and reliable professionals dedicated to providing exceptional support with a smile." },
   { title: "Fabulous, Reliable Staff", desc: "Our staff are committed to delivering outstanding service, ensuring every participant feels valued and supported." },
   { title: "Holistic and Personalised Approach", desc: "We focus on the overall well-being of our participants, offering personalised services that cater to individual needs." },
-  { title: "Savvy and Innovative", desc: "Core Disability Care is not your typical NDIS provider. We're savvy, innovative, and proud of the work we do." },
+  { title: "Savvy and Innovative", desc: "Core Support Care is not your typical NDIS provider. We're savvy, innovative, and proud of the work we do." },
 ];
 
 export const SIL_FEATURE_TABS = [

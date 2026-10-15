@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Quote, ArrowRight as ArrowRightIcon } from "lucide-react";
-import { Reveal, Spark, FaqItem, tiltHandlers, magneticHandlers, burstConfetti, FloatingBits, StickerBadge, CircleFeature, PolaroidWall, InfoTabs } from "../components/ui.jsx";
+import { Reveal, Spark, FaqItem, tiltHandlers, magneticHandlers, burstConfetti, FloatingBits, StickerBadge, CircleFeature, PolaroidWall } from "../components/ui.jsx";
 import { Home as HomeIcon, Sparkles } from "lucide-react";
 import { HERO_SLIDES, BLOCKS, GALLERY, TESTIMONIALS, IMG, REAL_PHOTOS, PROCESS_STEPS, FAQS, RESOURCES } from "../data.js";
 import { useSEO, SITE_URL } from "../hooks/useSEO.js";
@@ -9,6 +9,7 @@ import { useSEO, SITE_URL } from "../hooks/useSEO.js";
 const ABOUT_TABS = [
   {
     label: "What We Do",
+    img: IMG.ourWork,
     content: (
       <>
         <p>We deliver <strong>person-centred disability support</strong> built around three goals:</p>
@@ -23,6 +24,7 @@ const ABOUT_TABS = [
   },
   {
     label: "Our Team",
+    img: IMG.ourTeam,
     content: (
       <p>
         Our leadership team brings together a wide mix of skills, experience and backgrounds.
@@ -34,9 +36,10 @@ const ABOUT_TABS = [
   },
   {
     label: "Our Mission",
+    img: IMG.ourMission,
     content: (
       <p>
-        At Core Disability Care, we believe in building a community where every person living
+        At Core Support Care, we believe in building a community where every person living
         with disability has the chance to thrive. Through the{" "}
         <strong>National Disability Insurance Scheme (NDIS)</strong>, we deliver support that
         makes a genuine, lasting difference.
@@ -50,15 +53,15 @@ export default function Home() {
   const [tIndex, setTIndex] = useState(0);
 
   useSEO({
-    title: "Core Disability Care | NDIS Provider in Greater Sydney",
-    description: "Core Disability Care is a disability support provider in Greater Sydney, offering SIL group homes, Day Programs, Respite (STA), Support Coordination and Homecare.",
+    title: "Core Support Care | NDIS Provider in Greater Sydney",
+    description: "Core Support Care is a disability support provider in Greater Sydney, offering SIL group homes, Day Programs, Respite (STA), Support Coordination and Homecare.",
     path: "/",
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "MedicalBusiness",
-      name: "Core Disability Care",
+      name: "Core Support Care",
       url: SITE_URL,
-      telephone: "+61-1300-022-787",
+      telephone: "+61-1800-95-6474",
       email: "info@coredisabilitycare.com.au",
       address: {
         "@type": "PostalAddress",
@@ -74,7 +77,7 @@ export default function Home() {
   });
 
   useEffect(() => {
-    const id = setInterval(() => setSlide((s) => (s + 1) % HERO_SLIDES.length), 4500);
+    const id = setInterval(() => setSlide((s) => (s + 1) % HERO_SLIDES.length), 9000);
     return () => clearInterval(id);
   }, []);
 
@@ -100,7 +103,7 @@ export default function Home() {
             <span className="cdc-script">{HERO_SLIDES[slide].eyebrow}</span>
             <h1>Live your<span className="l2">best life!</span></h1>
             <p className="cdc-hero-sub">
-              At Core Disability Care, we provide fabulous SIL homes, Day Programs
+              At Core Support Care, we provide fabulous SIL homes, Day Programs
               with low-cost activities, Respite/STA homes and other NDIS services!
             </p>
             <div>
@@ -115,7 +118,13 @@ export default function Home() {
             </div>
           </div>
           <div className="cdc-hero-media">
-            <img key={slide} src={HERO_SLIDES[slide].img} alt="Core Disability Care participants and support workers enjoying an activity together" />
+            <video
+              key={slide}
+              src={HERO_SLIDES[slide].video}
+              poster={HERO_SLIDES[slide].poster}
+              autoPlay loop muted playsInline
+              aria-label="Core Support Care participants and support workers enjoying an activity together"
+            />
             <StickerBadge color="yellow" icon={Sparkles} label="Service with a smile" style={{ left: "auto", right: "1.4rem", bottom: "auto", top: "1.4rem" }} />
             <div className="cdc-hero-dots">
               {HERO_SLIDES.map((_, i) => (
@@ -164,40 +173,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Video moments — short clips from our Day Programs */}
-      <section className="cdc-section" style={{ paddingTop: 0 }}>
-        <div className="cdc-shell">
-          <Reveal className="cdc-section-head">
-            <span className="cdc-script">See it for yourself</span>
-            <h2>Moments worth watching</h2>
-            <p>Short clips from our community and Day Program sessions.</p>
-          </Reveal>
-          <Reveal className="cdc-video-grid">
-            <video
-              className="cdc-video-card"
-              src="/videos/day-programs-playground.mp4"
-              poster="/photos/video-playground-poster.jpg"
-              autoPlay loop muted playsInline controls
-              aria-label="A participant smiling and waving in a wheelchair at a playground"
-            />
-            <video
-              className="cdc-video-card"
-              src="/videos/day-programs-art.mp4"
-              poster="/photos/video-art-poster.jpg"
-              autoPlay loop muted playsInline controls
-              aria-label="A participant smiling during an art activity"
-            />
-          </Reveal>
-        </div>
-      </section>
-
-      {/* About tabs — What We Do / Our Team / Our Mission */}
-      <section className="cdc-section" style={{ paddingTop: 0 }}>
-        <div className="cdc-shell">
-          <Reveal>
-            <InfoTabs id="about-tabs" tabs={ABOUT_TABS} />
-          </Reveal>
-        </div>
+      {/* About — What We Do / Our Team / Our Mission, alternating image/text rows */}
+      <section className="cdc-section" style={{ paddingTop: 0, display: "flex", flexDirection: "column", gap: "3.5rem" }}>
+        {ABOUT_TABS.map((t, i) => (
+          <div
+            key={t.label}
+            className="cdc-shell"
+            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "center" }}
+          >
+            <Reveal style={{ order: i % 2 === 0 ? 0 : 1 }}>
+              <img src={t.img} alt={t.label} style={{ borderRadius: "1.3rem", width: "100%", height: 360, objectFit: "cover" }} />
+            </Reveal>
+            <Reveal style={{ order: i % 2 === 0 ? 1 : 0, display: "flex", flexDirection: "column", gap: ".6rem" }}>
+              <h3 style={{ fontFamily: "'Baloo 2', sans-serif", color: "var(--navy)", fontSize: "1.3rem" }}>{t.label}</h3>
+              <div style={{ color: "var(--ink-soft)", fontSize: "1.02rem" }}>{t.content}</div>
+            </Reveal>
+          </div>
+        ))}
       </section>
 
       {/* Colour blocks */}
@@ -209,7 +201,7 @@ export default function Home() {
                 <h3>{b.title}</h3>
                 <span className="cdc-block-arrow"><ArrowRight size={17} /></span>
               </div>
-              <div className="cdc-block-img"><img src={b.img} alt={`A Core Disability Care participant taking part in ${b.title}`} /></div>
+              <div className="cdc-block-img"><img src={b.img} alt={`A Core Support Care participant taking part in ${b.title}`} /></div>
             </Link>
           ))}
         </div>
@@ -244,7 +236,7 @@ export default function Home() {
           </Reveal>
           <Reveal className="cdc-gallery-grid">
             {GALLERY.map((src, i) => (
-              <a href="#" key={i}><img src={src} alt="Core Disability Care community activity" /></a>
+              <a href="#" key={i}><img src={src} alt="Core Support Care community activity" /></a>
             ))}
           </Reveal>
         </div>
@@ -285,7 +277,7 @@ export default function Home() {
           <Reveal className="cdc-section-head">
             <span className="cdc-script">Common questions</span>
             <h2>Frequently asked questions</h2>
-            <p>Can't find what you're after? Call our friendly team on 1300 022 787.</p>
+            <p>Can't find what you're after? Call our friendly team on 1800 95 6474.</p>
           </Reveal>
           <div className="cdc-faq-list">
             {FAQS.map((f, i) => (
@@ -325,7 +317,7 @@ export default function Home() {
             <span className="cdc-script">About Core</span>
             <h2 style={{ marginTop: ".4rem" }}>Not your typical NDIS provider</h2>
             <p style={{ color: "var(--ink-soft)", marginTop: "1.2rem", fontSize: "1.05rem" }}>
-              Core Disability Care is an NDIS provider dedicated to offering
+              Core Support Care is an NDIS provider dedicated to offering
               a range of services tailored to the diverse needs of our participants.
               Honesty and integrity are at the core of everything we do.
             </p>
@@ -352,7 +344,7 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal>
-            <img src={IMG.coordination} alt="A diverse team of Core Disability Care colleagues" style={{ borderRadius: "1.3rem", height: 320, width: "100%", objectFit: "cover", boxShadow: "0 26px 50px -28px rgba(22,33,62,.4)" }} />
+            <img src={IMG.coordination} alt="A diverse team of Core Support Care colleagues" style={{ borderRadius: "1.3rem", height: 320, width: "100%", objectFit: "cover", boxShadow: "0 26px 50px -28px rgba(22,33,62,.4)" }} />
           </Reveal>
         </div>
       </section>

@@ -8,9 +8,9 @@ export default function Footer() {
       <div className="cdc-shell-wide">
         <div className="cdc-footer-top">
           <div className="cdc-footer-brand">
-            <img src="/brand/logo-icon.png" alt="Core Disability Care" className="cdc-footer-logo" />
+            <img src="/brand/logo-icon.png" alt="Core Support Care" className="cdc-footer-logo" />
             <div style={{ marginTop: "1rem", fontFamily: "'Baloo 2', sans-serif", fontSize: "1.4rem", fontWeight: 700, color: "var(--white)" }}>
-              Core Disability Care
+              Core Support Care
             </div>
             <p>We're passionate about creating opportunities for people with disability to live the life they love.</p>
           </div>
@@ -35,7 +35,7 @@ export default function Footer() {
           </div>
           <div className="cdc-footer-contact">
             <h4>Contact Us</h4>
-            <div className="cdc-footer-contact-row"><Phone size={16} color="var(--pink)" /> 1300 022 787</div>
+            <div className="cdc-footer-contact-row"><Phone size={16} color="var(--pink)" /> 1800 95 6474</div>
             <div className="cdc-footer-contact-row"><Mail size={16} color="var(--pink)" /> info@coredisabilitycare.com.au</div>
             <Link to="/contact" className="cdc-btn cdc-btn-white" style={{ alignSelf: "flex-start" }}>Get In Touch</Link>
           </div>
@@ -63,7 +63,7 @@ export default function Footer() {
         </div>
 
         <div className="cdc-footer-bottom">
-          <span>© {new Date().getFullYear()} Core Disability Care Pty Ltd. ABN 45 123 456 789.</span>
+          <span>© {new Date().getFullYear()} Core Support Care Pty Ltd. ABN 45 123 456 789.</span>
           <div className="cdc-social">
             <a href="#" aria-label="Instagram"><Instagram size={13} /></a>
             <a href="#" aria-label="Facebook"><Facebook size={13} /></a>

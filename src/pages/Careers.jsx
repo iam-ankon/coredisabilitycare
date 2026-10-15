@@ -8,7 +8,7 @@ import { useSEO } from "../hooks/useSEO.js";
 export default function Careers() {
   useSEO({
     title: "Careers — Join Our Team",
-    description: "We're hiring support workers, allied health professionals and coordinators across Greater Sydney. See current openings and work experience placements at Core Disability Care.",
+    description: "We're hiring support workers, allied health professionals and coordinators across Greater Sydney. See current openings and work experience placements at Core Support Care.",
     path: "/careers",
   });
 

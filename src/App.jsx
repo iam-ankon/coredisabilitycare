@@ -10,6 +10,7 @@ import Respite from "./pages/Respite.jsx";
 import OtherServices from "./pages/OtherServices.jsx";
 import Careers from "./pages/Careers.jsx";
 import Contact from "./pages/Contact.jsx";
+import Refer from "./pages/Refer.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="other-services" element={<OtherServices />} />
         <Route path="careers" element={<Careers />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="refer-a-participant" element={<Refer />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
