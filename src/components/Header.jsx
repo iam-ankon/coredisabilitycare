@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X, Phone, Instagram, Facebook, Youtube, ChevronRight, Star } from "lucide-react";
+import { SPECIALISED_SERVICES } from "../data.js";
 
-const DAY_PROGRAM_REGIONS = ["Greater Sydney", "New South Wales"];
+const SERVICE_LINKS = SPECIALISED_SERVICES.map((s) => ({ label: s.title, to: `/our-services/${s.slug}` }));
 
 function GoogleLogo({ size = 14 }) {
   return (
@@ -67,10 +68,7 @@ function AnnouncementBar() {
 const NAV_LINKS = [
   { label: "Home", to: "/" },
   { label: "About Us", to: "/about-us" },
-  { label: "Day Programs", to: "/day-programs", dropdown: true },
-  { label: "Group Home SIL", to: "/group-home-sil" },
-  { label: "Respite", to: "/respite" },
-  { label: "Other Services", to: "/other-services" },
+  { label: "Our Services", to: "/day-programs", dropdown: true },
   { label: "Careers", to: "/careers" },
 ];
 
@@ -137,9 +135,9 @@ export default function Header() {
                 </NavLink>
                 {l.dropdown && dayOpen && (
                   <div className="cdc-dropdown">
-                    {DAY_PROGRAM_REGIONS.map((r) => (
-                      <Link to="/day-programs" key={r} onClick={() => setDayOpen(false)}>
-                        {r}
+                    {SERVICE_LINKS.map((s) => (
+                      <Link to={s.to} key={s.label} onClick={() => setDayOpen(false)}>
+                        {s.label}
                       </Link>
                     ))}
                   </div>
@@ -170,7 +168,12 @@ export default function Header() {
             <button className="cdc-menu-btn" aria-label="Close menu" onClick={() => setMenuOpen(false)}><X size={18} /></button>
           </div>
           {NAV_LINKS.map((l) => (
-            <Link key={l.label} to={l.to} onClick={() => setMenuOpen(false)}>{l.label} <ChevronRight size={16} /></Link>
+            <React.Fragment key={l.label}>
+              <Link to={l.to} onClick={() => setMenuOpen(false)}>{l.label} <ChevronRight size={16} /></Link>
+              {l.dropdown && SERVICE_LINKS.map((s) => (
+                <Link key={s.label} to={s.to} className="cdc-mobile-sublink" onClick={() => setMenuOpen(false)}>{s.label}</Link>
+              ))}
+            </React.Fragment>
           ))}
           <Link to="/day-programs" onClick={() => setMenuOpen(false)}>Locations <ChevronRight size={16} /></Link>
           <Link to="/contact" className="cdc-mobile-cta" onClick={() => setMenuOpen(false)}>Contact Us</Link>

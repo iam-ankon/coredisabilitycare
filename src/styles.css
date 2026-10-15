@@ -171,12 +171,30 @@
 .cdc-nav-link:hover, .cdc-nav-item.open .cdc-nav-link { opacity: 1; color: #C9A6FF; }
 .cdc-nav-link.active { opacity: 1; color: var(--white); background: var(--pink); }
 .cdc-nav-link { position: relative; }
+.cdc-dropdown-arrow { transition: transform .2s ease; flex: none; }
+
 .cdc-dropdown {
   position: absolute; top: 100%; left: 0; background: var(--purple-dark); min-width: 220px;
   border-radius: 0 0 .6rem .6rem; box-shadow: 0 20px 40px -20px rgba(0,0,0,.5); overflow: hidden; z-index: 50;
 }
 .cdc-dropdown a { display: block; padding: .7rem 1rem; color: var(--white); font-size: .85rem; font-weight: 600; }
 .cdc-dropdown a:hover { background: var(--pink); }
+
+/* Service detail page sidebar — same pill items, sitting as a page section */
+.cdc-service-sidebar {
+  background: var(--graybg); border-radius: 1.3rem; padding: 1.6rem; position: sticky; top: 6rem;
+  display: flex; flex-direction: column; gap: .7rem;
+}
+.cdc-service-sidebar-item {
+  display: flex; align-items: center; gap: .6rem; background: var(--white); color: var(--sky);
+  border: 1.5px solid var(--line); border-radius: .6rem; padding: .7rem .9rem; font-size: .85rem; font-weight: 700;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.cdc-service-sidebar-item span { flex: 1; }
+.cdc-service-sidebar-item:hover, .cdc-service-sidebar-item.active { background: var(--sky); color: var(--white); border-color: var(--sky); }
+.cdc-service-sidebar-item:hover .cdc-dropdown-arrow { transform: translateX(3px); }
+.cdc-service-grid { display: grid; grid-template-columns: 300px 1fr; gap: 2.5rem; align-items: start; }
+@media (max-width: 860px) { .cdc-service-sidebar { position: static; } .cdc-service-grid { grid-template-columns: 1fr; } }
 .cdc-navbar-right { display: flex; align-items: center; gap: 1.1rem; }
 .cdc-social { display: flex; align-items: center; gap: .5rem; }
 .cdc-social a { width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(255,255,255,.4); display: flex; align-items: center; justify-content: center; color: var(--white); }
@@ -212,6 +230,8 @@
   margin: 1.3rem 1.5rem 0; justify-content: center; border: none; border-radius: 999px; background: var(--grad-fun);
   padding: .9rem; font-weight: 700;
 }
+.cdc-mobile-nav a.cdc-mobile-sublink { padding-left: 2.6rem; font-weight: 500; font-size: .88rem; color: rgba(255,255,255,.75); }
+.cdc-mobile-nav a.cdc-mobile-sublink:hover { padding-left: 3rem; }
 
 /* Hero (home) */
 .cdc-hero {
@@ -374,7 +394,7 @@
 
 /* Feature grid (Why Core, SIL features, etc.) */
 .cdc-feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
-.cdc-feature-card { background: var(--white); border: 1px solid var(--line); border-radius: 1.1rem; padding: 1.8rem; padding-top: 2.2rem; transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease, border-color .25s ease; position: relative; overflow: hidden; }
+.cdc-feature-card { background: var(--white); border: 1px solid var(--line); border-radius: 1.1rem; padding: 1.8rem; padding-top: 2.2rem; transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease, border-color .25s ease; position: relative; overflow: hidden; scroll-margin-top: 7rem; }
 .cdc-feature-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--grad-fun); }
 .cdc-feature-card:nth-child(6n+1)::before { background: var(--sky); }
 .cdc-feature-card:nth-child(6n+2)::before { background: var(--pink); }

@@ -217,10 +217,10 @@ export const RESPITE_BENEFITS = [
 ];
 
 export const OTHER_SERVICES = [
-  { title: "Support Coordination", img: IMG.coordination, desc: "Navigating the NDIS can be challenging, but with Core's Support Coordination, you're never alone. We help you understand your plan, connect with providers and get the most from your funding." },
-  { title: "Homecare", img: IMG.home, desc: "Domestic assistance, personal care and daily living support delivered right where you live, on a schedule built around you." },
-  { title: "Community Access", img: IMG.hero2, desc: "One-on-one or small group support to get out, build friendships and take part in the things you enjoy." },
-  { title: "Core Social Club", img: IMG.social, desc: "The weekend social club everyone wants to join — outings, sport, day trips and new friends, every week." },
+  { slug: "support-coordination", title: "Support Coordination", img: IMG.coordination, desc: "Navigating the NDIS can be challenging, but with Core's Support Coordination, you're never alone. We help you understand your plan, connect with providers and get the most from your funding." },
+  { slug: "homecare", title: "Homecare", img: IMG.home, desc: "Domestic assistance, personal care and daily living support delivered right where you live, on a schedule built around you." },
+  { slug: "community-access", title: "Community Access", img: IMG.hero2, desc: "One-on-one or small group support to get out, build friendships and take part in the things you enjoy." },
+  { slug: "core-social-club", title: "Core Social Club", img: IMG.social, desc: "The weekend social club everyone wants to join — outings, sport, day trips and new friends, every week." },
 ];
 
 export const OPEN_ROLES = [
@@ -251,4 +251,111 @@ export const RESOURCES = [
   { tag: "Choosing a provider", title: "How to choose the right SIL provider for you", desc: "Six questions to ask before you sign on with a Supported Independent Living provider — from staff ratios to how they handle changes.", img: IMG.silLiving },
   { tag: "NDIS plans", title: "NDIS plan management, explained simply", desc: "Self-managed, plan-managed or agency-managed — what each option actually means for your day-to-day funding and paperwork.", img: IMG.coordination },
   { tag: "Getting started", title: "Getting the most out of your NDIS plan review", desc: "How to prepare for your plan review so your funding actually reflects the support you need this year.", img: IMG.social },
+];
+
+// Specialised Services — the categories listed in the "Our Services" nav dropdown.
+// Each gets its own page at /our-services/:slug (see src/pages/ServiceDetail.jsx).
+export const SPECIALISED_SERVICES = [
+  {
+    slug: "accommodation-tenancy",
+    title: "Accommodation & Tenancy",
+    intro: "Our team helps participants secure housing that suits their needs — from finding a property through to managing the tenancy day to day.",
+    items: [
+      "Help finding and applying for suitable housing",
+      "Support with tenancy agreements and lease paperwork",
+      "Liaising with real estate agents and housing providers",
+      "Ongoing support to maintain a tenancy",
+      "Guidance on SDA (Specialist Disability Accommodation) eligibility",
+    ],
+  },
+  {
+    slug: "assist-daily-tasks-shared-living",
+    title: "Assist – Daily Tasks/Shared Living",
+    intro: "Support with everyday tasks in a shared living environment, so participants can live comfortably alongside housemates while building independence.",
+    items: [
+      "Help with household tasks and chores",
+      "Support with shared meal planning and cooking",
+      "Assistance maintaining a clean, safe home",
+      "Support getting along with housemates",
+      "24/7 or rostered support, depending on your plan",
+    ],
+  },
+  {
+    slug: "assist-life-stage-transition",
+    title: "Assist – Life Stage & Transition",
+    intro: "Big life changes — leaving school, moving out of home, starting work — are easier with the right support around you.",
+    items: [
+      "Planning support for school-to-work transitions",
+      "Help moving into independent or supported living",
+      "Guidance through major life changes and milestones",
+      "Connecting with mentors and peer networks",
+      "Goal setting for the next stage of life",
+    ],
+  },
+  {
+    slug: "assist-personal-activities",
+    title: "Assist – Personal Activities",
+    intro: "One-on-one support with personal care and daily self-care routines, delivered with dignity and respect.",
+    items: [
+      "Help with personal hygiene and grooming",
+      "Support with dressing and mobility",
+      "Assistance with eating and mealtime routines",
+      "Medication reminders and support",
+      "Support tailored to your individual routine",
+    ],
+  },
+  {
+    slug: "assist-travel-transport",
+    title: "Assist – Travel/Transport",
+    intro: "Getting around safely and confidently, whether that's to appointments, work, or out in the community.",
+    items: [
+      "Wheelchair-accessible vehicle transport",
+      "Support attending appointments and errands",
+      "Travel training to build independent travel skills",
+      "NDIS transport funding accepted",
+      "Transport to and from Day Programs and activities",
+    ],
+  },
+  {
+    slug: "assist-development-life-skills",
+    title: "Assist Development – Life Skills",
+    intro: "We help participants build the practical and social skills that grow independence, confidence and community participation.",
+    items: [
+      "Self-care: hygiene and grooming",
+      "Shopping and cooking",
+      "Household cleaning",
+      "Organisational skills",
+      "Budgeting",
+      "Communication and social skills",
+      "Interpersonal skills",
+      "Problem solving",
+      "Mobility training",
+      "Goal setting",
+      "Managing medication",
+    ],
+  },
+  {
+    slug: "group-centre-based-activities",
+    title: "Group & Centre Based Activities",
+    intro: "Structured group activities at our centres build social connection, routine and new skills in a supportive setting.",
+    items: [
+      "Weekly centre-based group programs",
+      "Life skills workshops in a group setting",
+      "Social and recreational group activities",
+      "Small, consistent group sizes",
+      "Qualified support staff on-site",
+    ],
+  },
+  {
+    slug: "innovative-community-activities",
+    title: "Innovative Community Activities",
+    intro: "Creative, low-cost community outings and programs that get participants out, active and connected — from fishing to sailing and beyond.",
+    items: [
+      "Community outings and excursions",
+      "Sport, fitness and recreation programs",
+      "Arts, music and creative programs",
+      "New and seasonal activity programs",
+      "Opportunities to build friendships and community ties",
+    ],
+  },
 ];
