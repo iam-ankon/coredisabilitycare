@@ -89,9 +89,9 @@ export default function Refer() {
                   <span style={{ width: 38, height: 38, borderRadius: "50%", background: "rgba(255,255,255,.2)", display: "flex", alignItems: "center", justifyContent: "center", flex: "none" }}><Phone size={17} /></span>
                   1800 95 6474
                 </a>
-                <a href="mailto:info@coredisabilitycare.com.au" className="cdc-contact-info-row" style={{ color: "var(--white)" }}>
+                <a href="mailto:info@coresupportcare.com.au" className="cdc-contact-info-row" style={{ color: "var(--white)" }}>
                   <span style={{ width: 38, height: 38, borderRadius: "50%", background: "rgba(255,255,255,.2)", display: "flex", alignItems: "center", justifyContent: "center", flex: "none" }}><Mail size={17} /></span>
-                  info@coredisabilitycare.com.au
+                  info@coresupportcare.com.au
                 </a>
               </div>
             </div>

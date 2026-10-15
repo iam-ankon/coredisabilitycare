@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 const SITE_NAME = "Core Support Care";
-const SITE_URL = "https://www.coredisabilitycare.com.au";
+const SITE_URL = "https://coresupportcare.com.au";
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 function setMeta(attr, key, content) {

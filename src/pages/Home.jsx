@@ -62,7 +62,7 @@ export default function Home() {
       name: "Core Support Care",
       url: SITE_URL,
       telephone: "+61-1800-95-6474",
-      email: "info@coredisabilitycare.com.au",
+      email: "info@coresupportcare.com.au",
       address: {
         "@type": "PostalAddress",
         streetAddress: "Suite 4, 88 Restwell Street",
