@@ -1,4 +1,4 @@
-# Core Disability Care — Website
+# Core Supports Care — Website
 
 A real **multi-page** React + Vite site for Core Disability Care Pty Ltd, built to
 match the structure of a reference NDIS provider site: two-tier header with a
