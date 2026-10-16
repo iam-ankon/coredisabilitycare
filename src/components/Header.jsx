@@ -176,6 +176,7 @@ export default function Header() {
             </React.Fragment>
           ))}
           <Link to="/day-programs" onClick={() => setMenuOpen(false)}>Locations <ChevronRight size={16} /></Link>
+          <Link to="/refer-a-participant" onClick={() => setMenuOpen(false)}>Refer a Participant <ChevronRight size={16} /></Link>
           <Link to="/contact" className="cdc-mobile-cta" onClick={() => setMenuOpen(false)}>Contact Us</Link>
         </div>
       </div>
